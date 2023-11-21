@@ -4,8 +4,10 @@
 
 #include "SDL.h"
 #include "main.h"
+#include "utility/object.h"
+#include "renderer.h"
 
-void render(SDL_Renderer* renderer, Main& main) {
+void Renderer::render(SDL_Renderer* renderer, int &lastFrame) {
     SDL_Rect bg;
     bg.x = bg.y = 0;
     bg.w = 1280;
@@ -13,12 +15,18 @@ void render(SDL_Renderer* renderer, Main& main) {
     SDL_SetRenderDrawColor(renderer, 50, 50, 50, 255);
     SDL_RenderFillRect(renderer, &bg);
 
-    main.player.drawPlayer(main.renderer);
+    for (Object obj : objectList) {
+        obj.drawObject(renderer);
+    }
 
-    int timerFPS = SDL_GetTicks() - main.lastFrame;
+    int timerFPS = SDL_GetTicks() - lastFrame;
     if (timerFPS < (1000/60)) {
         SDL_Delay((1000/60)-timerFPS);
     }
 
     SDL_RenderPresent(renderer);
+}
+
+void Renderer::addObject(Object object) {
+    objectList.push_front(object);
 }

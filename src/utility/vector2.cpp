@@ -9,6 +9,6 @@ Vector2::Vector2(int x, int y) {
     this->y = y;
 }
 
-Vector2 Vector2::transform(int x, int y) {
-    return Vector2(this->x + x, this->y + y);
+Vector2 Vector2::transform(Vector2 amount) {
+    return Vector2(this->x + amount.x, this->y + amount.y);
 }

@@ -1,5 +1,5 @@
 #include <SDL.h>
-#include "render.h"
+#include "renderer.h"
 #include "eventhandle.h"
 #include "debug.h"
 #include "main.h"
@@ -17,7 +17,7 @@ Main::Main() {
 void Main::run() {
     handleEvent(&event, *this);
     lastFrame = SDL_GetTicks();
-    render(renderer, *this);
+    customRenderer.render(renderer, lastFrame);
 }
 
 void Main::quit() {
@@ -34,6 +34,8 @@ int main(int argc, char* args []) {
         SDL_Log("Failed to create window: %s", SDL_GetError());
         return 1;
     }
+
+    main.customRenderer.addObject(main.player);
 
     main.renderer = SDL_CreateRenderer(main.window, -1, SDL_RENDERER_ACCELERATED);
     if (main.renderer == nullptr) {

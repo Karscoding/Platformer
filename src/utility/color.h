@@ -6,10 +6,10 @@
 #define PROJECT_NAME_COLOR_H
 
 
-class Color {
-public:
+struct Color {
     int red, green, blue, alpha;
 
+    Color();
     Color(int red, int green, int blue);
 
     void changeOpacity(int alpha);

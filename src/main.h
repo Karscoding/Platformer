@@ -6,6 +6,7 @@
 #define PROJECT_NAME_MAIN_H
 
 #include "player.h"
+#include "renderer.h"
 
 class Main {
 public:
@@ -15,6 +16,7 @@ public:
     SDL_Event event;
     SDL_Window* window;
     SDL_Renderer* renderer;
+    Renderer customRenderer = Renderer();
 
     Player player;
 

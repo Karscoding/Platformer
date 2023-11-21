@@ -7,6 +7,8 @@
 #ifndef PROJECT_NAME_DEBUG_H
 #define PROJECT_NAME_DEBUG_H
 
-void log(std::string message);
+namespace Debug {
+    void log(std::string message);
+}
 
 #endif //PROJECT_NAME_DEBUG_H

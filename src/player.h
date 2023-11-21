@@ -5,26 +5,20 @@
 #include "SDL.h"
 #include "utility/vector2.h"
 #include "utility/color.h"
+#include "utility/object.h"
 
 #ifndef PROJECT_NAME_PLAYER_H
 #define PROJECT_NAME_PLAYER_H
 
 
-class Player {
+class Player : public Object {
 public:
-    SDL_Rect rect;
-    Color* color;
-    Vector2* position;
-    Vector2* dimensions;
 
     Player();
 
     void drawPlayer(SDL_Renderer* renderer);
 
     void move(int x, int y);
-
-    void updatePosition();
-    void updateDimensions();
 };
 
 
