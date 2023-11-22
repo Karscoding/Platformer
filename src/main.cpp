@@ -5,6 +5,8 @@
 
 #define DEBUG_MODE true
 
+SDL_Renderer* Game::renderer;
+
 int main(int argc, char* args []) {
     SDL_Init(SDL_INIT_VIDEO);
     Game game;
@@ -15,10 +17,10 @@ int main(int argc, char* args []) {
         return 1;
     }
 
-    game.customRenderer.addObject(game.player);
+    game.customRenderer.addObject(&game.player);
 
-    game.renderer = SDL_CreateRenderer(game.window, -1, SDL_RENDERER_ACCELERATED);
-    if (game.renderer == nullptr) {
+    Game::setRenderer(SDL_CreateRenderer(game.window, -1, SDL_RENDERER_ACCELERATED));
+    if (Game::renderer == nullptr) {
         SDL_Log("Failed to create renderer: %s", SDL_GetError());
         SDL_DestroyWindow(game.window);
         SDL_Quit();
@@ -45,11 +47,19 @@ Game::Game() {
 void Game::run() {
     handleEvent(&event, *this);
     player.update();
-    lastFrame = SDL_GetTicks();
-    customRenderer.render(*this);
+    Game::lastFrame = SDL_GetTicks();
+    customRenderer.render();
     SDL_RenderPresent(renderer);
 }
 
 void Game::quit() {
     this->running = false;
+}
+
+SDL_Renderer* Game::getRenderer() {
+    return renderer;
+}
+
+void Game::setRenderer(SDL_Renderer* renderer) {
+    Game::renderer = renderer;
 }

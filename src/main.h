@@ -16,18 +16,20 @@
 
 class Game {
 public:
-    int lastFrame;
+    static int lastFrame;
 
     bool running;
     SDL_Event event;
     SDL_Window* window;
-    SDL_Renderer* renderer;
+    static SDL_Renderer* renderer;
     Renderer customRenderer = Renderer();
 
     Player player;
 
     Game();
 
+    static SDL_Renderer* getRenderer();
+    static void setRenderer(SDL_Renderer* renderer);
     void run();
     void quit();
 };

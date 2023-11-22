@@ -14,12 +14,12 @@
 class Game;
 
 struct Renderer {
-    std::list<Object> objectList;
+    std::list<Object*> objectList;
 
     Renderer();
 
-    void render(Game& game);
-    void addObject(Object object);
+    void render();
+    void addObject(Object* object);
 };
 
 #endif //PROJECT_NAME_RENDERER_H

@@ -4,6 +4,8 @@
 
 #include "object.h"
 
+#include "../main.h"
+
 Object::Object() {
 
 }
@@ -23,7 +25,7 @@ void Object::updateDimensions() {
     this->rect.h = this->dimensions.y;
 }
 
-void Object::drawObject(SDL_Renderer *renderer) {
-    SDL_SetRenderDrawColor(renderer, color.red, color.green, color.blue, color.alpha);
-    SDL_RenderFillRect(renderer, &rect);
+void Object::drawObject() {
+    SDL_SetRenderDrawColor(Game::getRenderer(), color.red, color.green, color.blue, color.alpha);
+    SDL_RenderFillRect(Game::getRenderer(), &this->rect);
 }

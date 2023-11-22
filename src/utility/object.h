@@ -24,7 +24,7 @@ struct Object {
     void move(Vector2 amount);
     void updatePosition();
     void updateDimensions();
-    void drawObject(SDL_Renderer* renderer);
+    void drawObject();
 };
 
 

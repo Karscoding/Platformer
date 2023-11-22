@@ -18,7 +18,7 @@
 
 class Player : public Object {
 public:
-    int speed = 5;
+    int speed;
 
     Player();
 
