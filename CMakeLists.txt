@@ -14,7 +14,9 @@ add_executable(${PROJECT_NAME}
         src/debug.cpp
         src/player.cpp
         src/renderer.cpp
-        src/main.cpp)
+        src/main.cpp
+        src/utility/physicsBody.cpp
+        src/utility/physicsBody.h)
 
 # --- SDL2 SETUP ---
 set(CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake/modules)
