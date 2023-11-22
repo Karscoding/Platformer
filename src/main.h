@@ -2,13 +2,19 @@
 // Created by Shadow on 11/20/2023.
 //
 
-#ifndef PROJECT_NAME_MAIN_H
-#define PROJECT_NAME_MAIN_H
+#pragma once
+
+#ifndef MAIN_H
+#define MAIN_H
 
 #include "player.h"
 #include "renderer.h"
+#include "SDL.h"
+#include "eventhandle.h"
+#include "debug.h"
+#include "player.h"
 
-class Main {
+class Game {
 public:
     int lastFrame;
 
@@ -20,10 +26,10 @@ public:
 
     Player player;
 
-    Main();
+    Game();
 
     void run();
     void quit();
 };
 
-#endif //PROJECT_NAME_MAIN_H
+#endif //MAIN_H

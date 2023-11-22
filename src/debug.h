@@ -2,10 +2,13 @@
 // Created by Shadow on 11/20/2023.
 //
 
-#include <string>
+#pragma once
 
 #ifndef PROJECT_NAME_DEBUG_H
 #define PROJECT_NAME_DEBUG_H
+
+#include <string>
+#include <iostream>
 
 namespace Debug {
     void log(std::string message);

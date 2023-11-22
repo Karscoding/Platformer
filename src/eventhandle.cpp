@@ -2,17 +2,15 @@
 // Created by Shadow on 11/20/2023.
 //
 
-#include "SDL.h"
-#include "main.h"
-#include "inputhandle.h"
+#include "eventhandle.h"
 
-void handleEvent(SDL_Event* event, Main& main) {
+void handleEvent(SDL_Event* event, Game& main) {
     while(SDL_PollEvent(event)) {
         if (event->type == SDL_QUIT) {
             main.quit();
         }
     }
-    if (getInput()[SDL_SCANCODE_ESCAPE]) {
+    if (Input::checkInput(SDL_Scancode(SDL_SCANCODE_ESCAPE))) {
         main.quit();
     }
 }

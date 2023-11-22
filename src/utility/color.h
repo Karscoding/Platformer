@@ -2,9 +2,10 @@
 // Created by Shadow on 11/20/2023.
 //
 
+#pragma once
+
 #ifndef PROJECT_NAME_COLOR_H
 #define PROJECT_NAME_COLOR_H
-
 
 struct Color {
     int red, green, blue, alpha;

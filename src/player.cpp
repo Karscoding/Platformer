@@ -3,13 +3,12 @@
 //
 
 #include "player.h"
-#include "utility/color.h"
 
-#define PLAYER_WIDTH 32
-#define PLAYER_HEIGHT 32
+#define PLAYER_WIDTH 64
+#define PLAYER_HEIGHT 64
 
-#define PLAYER_SPAWN_X 64
-#define PLAYER_SPAWN_Y 64
+#define PLAYER_SPAWN_X 250
+#define PLAYER_SPAWN_Y 250
 
 #define PLAYER_RED 255
 #define PLAYER_GREEN 255
@@ -22,4 +21,13 @@ Player::Player() {
 
     updatePosition();
     updateDimensions();
+}
+
+void Player::update() {
+    if (Input::checkInput(SDL_Scancode(SDL_SCANCODE_A))) {
+        move(Vector2(-speed, 0));
+    }
+    if (Input::checkInput(SDL_Scancode(SDL_SCANCODE_D))) {
+        move(Vector2(speed, 0));
+    }
 }

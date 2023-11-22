@@ -2,6 +2,8 @@
 // Created by Shadow on 11/21/2023.
 //
 
+#pragma once
+
 #ifndef PROJECT_NAME_COLLIDER_H
 #define PROJECT_NAME_COLLIDER_H
 

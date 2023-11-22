@@ -18,7 +18,7 @@ Using the Simple DirectMedia Layer for iOS
 1. Run Xcode and create a new project using the iOS Game template, selecting the Objective C language and Metal game technology.
 2. In the main view, delete all files except for Assets and LaunchScreen
 3. Right click the project in the main view, select "Add Files...", and add the SDL project, Xcode/SDL/SDL.xcodeproj
-4. Select the project in the main view, go to the "Info" tab and under "Custom iOS Target Properties" remove the line "Main storyboard file base name"
+4. Select the project in the main view, go to the "Info" tab and under "Custom iOS Target Properties" remove the line "Game storyboard file base name"
 5. Select the project in the main view, go to the "Build Settings" tab, select "All", and edit "Header Search Path" and drag over the SDL "Public Headers" folder from the left
 6. Select the project in the main view, go to the "Build Phases" tab, select "Link Binary With Libraries", and add SDL2.framework from "Framework-iOS"
 7. Select the project in the main view, go to the "General" tab, scroll down to "Frameworks, Libraries, and Embedded Content", and select "Embed & Sign" for the SDL library.

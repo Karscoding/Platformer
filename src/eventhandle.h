@@ -2,12 +2,14 @@
 // Created by Shadow on 11/20/2023.
 //
 
-#include "SDL.h"
-#include "main.h"
+#pragma once
 
 #ifndef PROJECT_NAME_EVENTHANDLE_H
 #define PROJECT_NAME_EVENTHANDLE_H
 
-void handleEvent(SDL_Event* event, Main& main);
+#include "main.h"
+#include "SDL.h"
+
+void handleEvent(SDL_Event* event, Game& game);
 
 #endif //PROJECT_NAME_EVENTHANDLE_H

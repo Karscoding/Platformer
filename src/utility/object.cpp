@@ -10,6 +10,7 @@ Object::Object() {
 
 void Object::move(Vector2 amount) {
     this->position = position.transform(amount);
+    updatePosition();
 }
 
 void Object::updatePosition() {

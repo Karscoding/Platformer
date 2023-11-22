@@ -4,16 +4,17 @@ project(PROJECT_NAME)
 set(CMAKE_CXX_STANDARD 14)
 
 # Must set the path to the main.cpp, for example: src/main.cpp if it is inside a folder
-add_executable(${PROJECT_NAME} src/main.cpp
-        src/renderer.cpp
+add_executable(${PROJECT_NAME}
+        src/utility/vector2.cpp
+        src/utility/color.cpp
+        src/utility/object.cpp
+        src/utility/collider.cpp
         src/eventhandle.cpp
         src/inputhandle.cpp
         src/debug.cpp
         src/player.cpp
-        src/utility/vector2.cpp
-        src/utility/color.cpp
-        src/utility/object.cpp
-        src/utility/collider.cpp)
+        src/renderer.cpp
+        src/main.cpp)
 
 # --- SDL2 SETUP ---
 set(CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake/modules)

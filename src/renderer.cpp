@@ -2,29 +2,27 @@
 // Created by Shadow on 11/20/2023.
 //
 
-#include "SDL.h"
-#include "main.h"
-#include "utility/object.h"
 #include "renderer.h"
+#include "main.h"
 
-void Renderer::render(SDL_Renderer* renderer, int &lastFrame) {
+Renderer::Renderer() {}
+
+void Renderer::render(Game& game) {
     SDL_Rect bg;
     bg.x = bg.y = 0;
     bg.w = 1280;
     bg.h = 720;
-    SDL_SetRenderDrawColor(renderer, 50, 50, 50, 255);
-    SDL_RenderFillRect(renderer, &bg);
+    SDL_SetRenderDrawColor(game.renderer, 50, 50, 50, 255);
+    SDL_RenderFillRect(game.renderer, &bg);
 
     for (Object obj : objectList) {
-        obj.drawObject(renderer);
+        obj.drawObject(game.renderer);
     }
 
-    int timerFPS = SDL_GetTicks() - lastFrame;
+    int timerFPS = SDL_GetTicks() - game.lastFrame;
     if (timerFPS < (1000/60)) {
         SDL_Delay((1000/60)-timerFPS);
     }
-
-    SDL_RenderPresent(renderer);
 }
 
 void Renderer::addObject(Object object) {
