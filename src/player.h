@@ -29,6 +29,8 @@ public:
 
     void update();
 
+    void resetPlayer();
+
     void debugging();
 };
 

@@ -7,8 +7,8 @@
 #define PLAYER_WIDTH 64
 #define PLAYER_HEIGHT 64
 
-#define PLAYER_SPAWN_X 250
-#define PLAYER_SPAWN_Y 250
+#define PLAYER_SPAWN_X 400
+#define PLAYER_SPAWN_Y 100
 
 #define PLAYER_RED 255
 #define PLAYER_GREEN 255
@@ -34,6 +34,14 @@ void Player::update() {
     if (Input::checkInput(SDL_Scancode(SDL_SCANCODE_D)) || Input::checkInput(SDL_Scancode(SDL_SCANCODE_RIGHT))) {
         move(Vector2(speed, 0));
     }
+    if (Input::checkInput(SDL_Scancode(SDL_SCANCODE_R))) {
+        resetPlayer();
+    }
 
     physicsBody.run();
+}
+
+void Player::resetPlayer() {
+    setPosition(Vector2(PLAYER_SPAWN_X, PLAYER_SPAWN_Y));
+    this->physicsBody.resetVelocity();
 }

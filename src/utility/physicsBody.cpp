@@ -18,13 +18,17 @@ PhysicsBody::PhysicsBody(Object* object)
 
 void PhysicsBody::run() {
     if (!isGrounded) {
-        SDL_Log("!isGrounded");
         gravity();
+        SDL_Log("IS NOT GROUNDED");
     } if (isGrounded) {
-        SDL_Log("isGrounded");
-        velocity = 0.0f;
+        resetVelocity();
+        SDL_Log("IS GROUNDED");
     }
     applyVelocity();
+}
+
+void PhysicsBody::resetVelocity() {
+    velocity = 0.0f;
 }
 
 void PhysicsBody::applyVelocity() {

@@ -16,12 +16,13 @@ struct Object {
     SDL_Rect rect;
     Color color = Color(255, 255, 255);
 
-    Vector2 position = Vector2(0, 0);
-    Vector2 dimensions = Vector2(0, 0);
+    Vector2 position;
+    Vector2 dimensions;
 
     Object();
 
     void move(Vector2 amount);
+    void setPosition(Vector2 position);
     void updatePosition();
     void updateDimensions();
     void drawObject();

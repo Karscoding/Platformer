@@ -19,6 +19,7 @@ struct PhysicsBody {
 
     PhysicsBody(Object* object);
     void run();
+    void resetVelocity();
     void applyVelocity();
     void gravity();
 };

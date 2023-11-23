@@ -44,7 +44,7 @@ int main(int argc, char* args []) {
 }
 
 Game::Game()
-    : ground(new Ground(Vector2(200, 500), Vector2(500, 100), Color(255, 255, 255)))
+    : ground(new Ground(Vector2(300, 400), Vector2(600, 200), Color(255, 255, 255)))
     {}
 
 void Game::run() {
