@@ -27,6 +27,7 @@ public:
 
     static Player* player;
     Ground* ground;
+//    Ground* ground2;
 
     Game();
 

@@ -8,7 +8,7 @@
 #define PLAYER_HEIGHT 64
 
 #define PLAYER_SPAWN_X 400
-#define PLAYER_SPAWN_Y 100
+#define PLAYER_SPAWN_Y 200
 
 #define PLAYER_RED 255
 #define PLAYER_GREEN 255
@@ -45,7 +45,28 @@ void Player::update() {
         physicsBody.setGravityEnabled(true);
     }
 
+    if (isGrounded) {
+        physicsBody.setGravityEnabled(false);
+        physicsBody.resetVelocity();
+        SDL_Log("GROUNDED");
+    } else {
+        physicsBody.setGravityEnabled(true);
+        SDL_Log("NOT GROUNDED");
+    }
+
     physicsBody.run();
+}
+
+void Player::setGrounded(bool value) {
+    isGrounded = value;
+}
+
+PhysicsBody* Player::getPhysicsBody() {
+    return &physicsBody;
+}
+
+Collider* Player::getCollider() {
+    return &collider;
 }
 
 void Player::resetPlayer() {

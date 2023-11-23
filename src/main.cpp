@@ -21,6 +21,7 @@ int main(int argc, char* args []) {
 
     game.customRenderer.addObject(game.player);
     game.customRenderer.addObject(game.ground);
+//    game.customRenderer.addObject(game.ground2);
 
     Game::setRenderer(SDL_CreateRenderer(game.window, -1, SDL_RENDERER_ACCELERATED));
     if (Game::renderer == nullptr) {
@@ -44,13 +45,15 @@ int main(int argc, char* args []) {
 }
 
 Game::Game()
-    : ground(new Ground(Vector2(300, 400), Vector2(600, 200), Color(255, 255, 255)))
+    : ground(new Ground(Vector2(300, 400), Vector2(600, 200), Color(255, 255, 255)))//,
+//    ground2(new Ground(Vector2(950, 500), Vector2(200, 100), Color(255, 255, 255)))
     {}
 
 void Game::run() {
     handleEvent(&event, *this);
     player->update();
     ground->update();
+//    ground2->update();
     Game::lastFrame = SDL_GetTicks();
     customRenderer.render();
     SDL_RenderPresent(renderer);

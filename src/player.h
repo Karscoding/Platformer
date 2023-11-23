@@ -31,6 +31,11 @@ public:
 
     void update();
 
+    void setGrounded(bool value);
+
+    PhysicsBody* getPhysicsBody();
+    Collider* getCollider();
+
     void resetPlayer();
 
     void debugging();

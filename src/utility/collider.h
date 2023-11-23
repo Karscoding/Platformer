@@ -13,6 +13,8 @@ struct Collider{
     Vector2* position;
     Vector2* dimensions;
 
+    bool isTouching;
+
     Vector2* topLeftCorner;
     Vector2* topRightCorner;
     Vector2* bottomLeftCorner;
