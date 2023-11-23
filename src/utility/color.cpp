@@ -4,10 +4,8 @@
 
 #include "color.h"
 
-Color::Color(int red, int green, int blue) {
-    this->red = red;
-    this->green = green;
-    this->blue = blue;
+Color::Color(int red, int green, int blue)
+    : red(red), green(green), blue(blue) {
     this->alpha = 255;
 }
 

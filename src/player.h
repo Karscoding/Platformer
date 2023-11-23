@@ -9,6 +9,8 @@
 #include "utility/color.h"
 #include "utility/object.h"
 #include "utility/color.h"
+#include "utility/physicsBody.h"
+#include "utility/collider.h"
 #include "inputhandle.h"
 #include "SDL.h"
 
@@ -20,10 +22,12 @@ class Player : public Object {
 public:
     int speed;
 
+    PhysicsBody physicsBody;
+    Collider collider;
+
     Player();
 
     void update();
-    void moveAttempt();
 
     void debugging();
 };

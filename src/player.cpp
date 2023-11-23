@@ -16,7 +16,8 @@
 
 #define PLAYER_SPEED 10
 
-Player::Player() {
+Player::Player()
+    : physicsBody(this), collider(this) {
     this->position = Vector2(PLAYER_SPAWN_X, PLAYER_SPAWN_Y);
     this->dimensions = Vector2(PLAYER_WIDTH, PLAYER_HEIGHT);
     this->color = Color(PLAYER_RED, PLAYER_GREEN, PLAYER_BLUE);
@@ -33,4 +34,6 @@ void Player::update() {
     if (Input::checkInput(SDL_Scancode(SDL_SCANCODE_D)) || Input::checkInput(SDL_Scancode(SDL_SCANCODE_RIGHT))) {
         move(Vector2(speed, 0));
     }
+
+    physicsBody.run();
 }

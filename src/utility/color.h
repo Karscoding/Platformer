@@ -7,6 +7,7 @@
 #ifndef PROJECT_NAME_COLOR_H
 #define PROJECT_NAME_COLOR_H
 
+// Simple way to store color data
 struct Color {
     int red, green, blue, alpha;
 

@@ -13,18 +13,20 @@
 #include "eventhandle.h"
 #include "debug.h"
 #include "player.h"
+#include "ground.h"
 
 class Game {
 public:
     static int lastFrame;
 
-    bool running;
+    static bool running;
     SDL_Event event;
     SDL_Window* window;
     static SDL_Renderer* renderer;
     Renderer customRenderer = Renderer();
 
-    Player player;
+    static Player* player;
+    Ground* ground;
 
     Game();
 

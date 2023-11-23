@@ -7,6 +7,8 @@
 
 SDL_Renderer* Game::renderer;
 
+Player* Game::player = new Player();
+
 int main(int argc, char* args []) {
     SDL_Init(SDL_INIT_VIDEO);
     Game game;
@@ -17,7 +19,8 @@ int main(int argc, char* args []) {
         return 1;
     }
 
-    game.customRenderer.addObject(&game.player);
+    game.customRenderer.addObject(game.player);
+    game.customRenderer.addObject(game.ground);
 
     Game::setRenderer(SDL_CreateRenderer(game.window, -1, SDL_RENDERER_ACCELERATED));
     if (Game::renderer == nullptr) {
@@ -27,10 +30,10 @@ int main(int argc, char* args []) {
         return 1;
     }
 
-    game.running = true;
+    Game::running = true;
     SDL_Event event;
 
-    while (game.running) {
+    while (Game::running) {
         game.run();
     }
 
@@ -40,20 +43,21 @@ int main(int argc, char* args []) {
     return 0;
 }
 
-Game::Game() {
-
-}
+Game::Game()
+    : ground(new Ground(Vector2(200, 500), Vector2(500, 100), Color(255, 255, 255)))
+    {}
 
 void Game::run() {
     handleEvent(&event, *this);
-    player.update();
+    player->update();
+    ground->update();
     Game::lastFrame = SDL_GetTicks();
     customRenderer.render();
     SDL_RenderPresent(renderer);
 }
 
 void Game::quit() {
-    this->running = false;
+    Game::running = false;
 }
 
 SDL_Renderer* Game::getRenderer() {

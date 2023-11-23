@@ -11,9 +11,11 @@ Renderer::Renderer() {}
 
 void Renderer::render() {
     SDL_Rect bg;
+
     bg.x = bg.y = 0;
     bg.w = 1280;
     bg.h = 720;
+
     SDL_SetRenderDrawColor(Game::getRenderer(), 50, 50, 50, 255);
     SDL_RenderFillRect(Game::getRenderer(), &bg);
 

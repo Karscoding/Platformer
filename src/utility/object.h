@@ -11,7 +11,7 @@
 #include "SDL.h"
 #include "color.h"
 
-
+// An object
 struct Object {
     SDL_Rect rect;
     Color color = Color(255, 255, 255);

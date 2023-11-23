@@ -10,6 +10,8 @@
 #include "SDL.h"
 #include "utility/object.h"
 #include <list>
+#include <array>
+#include <vector>
 
 class Game;
 

@@ -6,9 +6,7 @@
 
 #include "../main.h"
 
-Object::Object() {
-
-}
+Object::Object() {}
 
 void Object::move(Vector2 amount) {
     this->position = position.transform(amount);
