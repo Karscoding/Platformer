@@ -13,18 +13,22 @@ float PhysicsBody::gravityStrength = 5.0f;
 PhysicsBody::PhysicsBody(Object* object)
     : object(object) {
     velocity = 0.0f;
-    isGrounded = false;
+    gravityEnabled = true;
 }
 
 void PhysicsBody::run() {
-    if (!isGrounded) {
+    if (gravityEnabled) {
         gravity();
-        SDL_Log("IS NOT GROUNDED");
-    } if (isGrounded) {
-        resetVelocity();
-        SDL_Log("IS GROUNDED");
+        applyVelocity();
     }
-    applyVelocity();
+}
+
+void PhysicsBody::addForce(float amount) {
+    velocity += amount;
+}
+
+void PhysicsBody::setGravityEnabled(bool enabled) {
+    this->gravityEnabled = enabled;
 }
 
 void PhysicsBody::resetVelocity() {

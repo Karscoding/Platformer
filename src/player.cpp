@@ -37,6 +37,13 @@ void Player::update() {
     if (Input::checkInput(SDL_Scancode(SDL_SCANCODE_R))) {
         resetPlayer();
     }
+    if (Input::checkInput(SDL_Scancode(SDL_SCANCODE_G))) {
+        physicsBody.setGravityEnabled(false);
+        resetPlayer();
+    }
+    if (Input::checkInput(SDL_Scancode(SDL_SCANCODE_H))) {
+        physicsBody.setGravityEnabled(true);
+    }
 
     physicsBody.run();
 }

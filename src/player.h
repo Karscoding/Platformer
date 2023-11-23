@@ -22,6 +22,8 @@ class Player : public Object {
 public:
     int speed;
 
+    bool isGrounded;
+
     PhysicsBody physicsBody;
     Collider collider;
 

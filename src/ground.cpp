@@ -19,8 +19,8 @@ Ground::Ground(Vector2 position, Vector2 dimensions, Color color)
 
 void Ground::update() {
     if (collider.isColliding(&Game::player->collider)) {
-        Game::player->physicsBody.isGrounded = true;
+        Game::player->isGrounded = true;
     } else {
-        Game::player->physicsBody.isGrounded = false;
+        Game::player->isGrounded = false;
     }
 }
