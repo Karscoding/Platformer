@@ -48,10 +48,8 @@ void Player::update() {
     if (isGrounded) {
         physicsBody.setGravityEnabled(false);
         physicsBody.resetVelocity();
-        SDL_Log("GROUNDED");
     } else {
         physicsBody.setGravityEnabled(true);
-        SDL_Log("NOT GROUNDED");
     }
 
     physicsBody.run();
