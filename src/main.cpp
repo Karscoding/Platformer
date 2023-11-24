@@ -46,6 +46,7 @@ int main(int argc, char* args []) {
 Game::Game() {}
 
 void Game::run() {
+    // todo: organize into an updatemanager class or smthn.
     handleEvent(&event, *this);
     player->update();
     Game::lastFrame = SDL_GetTicks();

@@ -37,6 +37,7 @@ Collider* Collider::runCollisionCheck() {
     return nullptr;
 }
 
+// todo : should probably change this to isCollingTop and then add a isCollingSide to know the difference.
 bool Collider::isColliding(Collider* other) {
     updateCorners();
     other->updateCorners();
