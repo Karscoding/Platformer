@@ -13,12 +13,19 @@
 struct PhysicsBody {
     float velocity;
     static float gravityStrength;
-    bool isGrounded;
+
+    bool gravityEnabled;
 
     Object* object;
 
     PhysicsBody(Object* object);
     void run();
+
+    void addForce(float amount);
+
+    void setGravityEnabled(bool enabled);
+
+    void resetVelocity();
     void applyVelocity();
     void gravity();
 };

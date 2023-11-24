@@ -12,15 +12,12 @@ Ground::Ground(Vector2 position, Vector2 dimensions, Color color)
     this->position = position;
     this->dimensions = dimensions;
     this->color = color;
+    this->collider.tag = "Ground";
 
     updatePosition();
     updateDimensions();
 }
 
 void Ground::update() {
-    if (collider.isColliding(&Game::player->collider)) {
-        Game::player->physicsBody.isGrounded = true;
-    } else {
-        Game::player->physicsBody.isGrounded = false;
-    }
+
 }

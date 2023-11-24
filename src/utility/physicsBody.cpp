@@ -8,23 +8,32 @@
 bool Game::running;
 
 
-float PhysicsBody::gravityStrength = 5.0f;
+float PhysicsBody::gravityStrength = 2.5f;
 
 PhysicsBody::PhysicsBody(Object* object)
     : object(object) {
     velocity = 0.0f;
-    isGrounded = false;
+    gravityEnabled = true;
 }
 
 void PhysicsBody::run() {
-    if (!isGrounded) {
-        SDL_Log("!isGrounded");
+    if (gravityEnabled) {
         gravity();
-    } if (isGrounded) {
-        SDL_Log("isGrounded");
-        velocity = 0.0f;
     }
+
     applyVelocity();
+}
+
+void PhysicsBody::addForce(float amount) {
+    this->velocity -= amount;
+}
+
+void PhysicsBody::setGravityEnabled(bool enabled) {
+    this->gravityEnabled = enabled;
+}
+
+void PhysicsBody::resetVelocity() {
+    this->velocity = 0.0f;
 }
 
 void PhysicsBody::applyVelocity() {

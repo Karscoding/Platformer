@@ -14,6 +14,8 @@
 #include "debug.h"
 #include "player.h"
 #include "ground.h"
+#include "level.h"
+#include "level1.h"
 
 class Game {
 public:
@@ -26,11 +28,14 @@ public:
     Renderer customRenderer = Renderer();
 
     static Player* player;
-    Ground* ground;
+
+    std::list<Level*> levelList;
+    static Level* currentLevel;
 
     Game();
 
     static SDL_Renderer* getRenderer();
+    static Level* getCurrentLevel();
     static void setRenderer(SDL_Renderer* renderer);
     void run();
     void quit();

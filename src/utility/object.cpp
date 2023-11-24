@@ -6,11 +6,17 @@
 
 #include "../main.h"
 
-Object::Object() {}
+Object::Object()
+    : position(0, 0), dimensions(0, 0) {
+}
 
 void Object::move(Vector2 amount) {
     this->position = position.transform(amount);
     updatePosition();
+}
+
+void Object::setPosition(Vector2 position) {
+    this->position = position;
 }
 
 void Object::updatePosition() {

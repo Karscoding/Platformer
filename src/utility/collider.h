@@ -8,21 +8,28 @@
 #define PROJECT_NAME_COLLIDER_H
 
 #include "object.h"
+#include <string>
+
+class Player;
 
 struct Collider{
+    std::string tag;
+
     Vector2* position;
     Vector2* dimensions;
 
     Vector2* topLeftCorner;
-    Vector2* topRightCorner;
-    Vector2* bottomLeftCorner;
     Vector2* bottomRightCorner;
 
     Object* object;
+    Collider* lastTouched;
 
     Collider(Object* object);
 
     void updateCorners();
+
+    void update(Player* player);
+    Collider* runCollisionCheck();
     bool isColliding(Collider* other);
 };
 

@@ -14,8 +14,8 @@ struct Vector2 {
     Vector2(int x, int y);
     Vector2 transform(Vector2 amount);
 
-    bool operator>= (Vector2 other);
-    bool operator<= (Vector2 other);
+    bool operator>= (Vector2* other) const;
+    bool operator<= (Vector2* other) const;
 };
 
 

@@ -3,22 +3,46 @@
 //
 
 #include "collider.h"
+#include "../main.h"
 
 Collider::Collider(Object* object)
     : object(object) {
     this->position = &object->position;
     this->dimensions = &object->dimensions;
+    this->tag = "Default";
 
     updateCorners();
 }
 
 void Collider::updateCorners() {
-    this->topLeftCorner = new Vector2(this->position->x, this->position->y);
-    this->topRightCorner = new Vector2(this->position->x + this->dimensions->x, this->position->y);
-    this->bottomLeftCorner = new Vector2(this->position->x, this->position->y + this->dimensions->y);
-    this->bottomRightCorner = new Vector2(this->position->x + this->dimensions->x, this->position->y + this->dimensions->y);
+    this->topLeftCorner = new Vector2(this->position->x, this->position->y - 5);
+    this->bottomRightCorner = new Vector2(this->position->x + this->dimensions->x, this->position->y + this->dimensions->y + 5);
+}
+
+void Collider::update(Player* player) {
+    if (runCollisionCheck() != nullptr) {
+        lastTouched = runCollisionCheck();
+        player->onCollision(lastTouched);
+    } else {
+        player->onCollisionExit(lastTouched);
+    }
+}
+
+Collider* Collider::runCollisionCheck() {
+    for (Ground* ground : Game::getCurrentLevel()->groundObjects) {
+        if (this->isColliding(&ground->collider)) {
+            return &ground->collider;
+        }
+    }
+    return nullptr;
 }
 
 bool Collider::isColliding(Collider* other) {
-    return other->bottomLeftCorner >= this->topLeftCorner && other->topLeftCorner <= this->bottomRightCorner;
+    updateCorners();
+    other->updateCorners();
+    if (this->topLeftCorner->operator<=(other->bottomRightCorner) && this->bottomRightCorner->operator>=(other->topLeftCorner)) {
+        return true;
+    } else {
+        return false;
+    }
 }

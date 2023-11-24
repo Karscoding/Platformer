@@ -4,7 +4,6 @@
 
 #pragma once
 
-#include "SDL.h"
 #include "utility/vector2.h"
 #include "utility/color.h"
 #include "utility/object.h"
@@ -22,12 +21,26 @@ class Player : public Object {
 public:
     int speed;
 
+    float jumpForce;
+
+    bool isGrounded;
+
     PhysicsBody physicsBody;
     Collider collider;
 
     Player();
 
     void update();
+
+    void setGrounded(bool value);
+
+    PhysicsBody* getPhysicsBody();
+    Collider* getCollider();
+
+    void onCollision(Collider* other);
+    void onCollisionExit(Collider* lastTouched);
+
+    void resetPlayer();
 
     void debugging();
 };
