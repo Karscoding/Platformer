@@ -14,7 +14,8 @@
 #define PLAYER_GREEN 255
 #define PLAYER_BLUE 255
 
-#define PLAYER_SPEED 10
+#define PLAYER_SPEED 15
+#define PLAYER_JUMP_FORCE 35.0f
 
 Player::Player()
     : physicsBody(this), collider(this) {
@@ -22,6 +23,7 @@ Player::Player()
     this->dimensions = Vector2(PLAYER_WIDTH, PLAYER_HEIGHT);
     this->color = Color(PLAYER_RED, PLAYER_GREEN, PLAYER_BLUE);
     this->speed = PLAYER_SPEED;
+    this->jumpForce = PLAYER_JUMP_FORCE;
 
     updatePosition();
     updateDimensions();
@@ -37,22 +39,29 @@ void Player::update() {
     if (Input::checkInput(SDL_Scancode(SDL_SCANCODE_R))) {
         resetPlayer();
     }
-    if (Input::checkInput(SDL_Scancode(SDL_SCANCODE_G))) {
-        physicsBody.setGravityEnabled(false);
-        resetPlayer();
-    }
-    if (Input::checkInput(SDL_Scancode(SDL_SCANCODE_H))) {
-        physicsBody.setGravityEnabled(true);
-    }
-
-    if (isGrounded) {
-        physicsBody.setGravityEnabled(false);
+    if (Input::checkInput(SDL_Scancode(SDL_SCANCODE_SPACE)) && isGrounded) {
         physicsBody.resetVelocity();
-    } else {
-        physicsBody.setGravityEnabled(true);
+        physicsBody.addForce(jumpForce);
+        isGrounded = false;
     }
 
     physicsBody.run();
+
+    collider.update(this);
+}
+
+void Player::onCollision(Collider *other) {
+    if (other->tag == "Ground") {
+        physicsBody.resetVelocity();
+        physicsBody.setGravityEnabled(false);
+        setPosition(Vector2(position.x, other->position->y - dimensions.y));
+        isGrounded = true;
+    }
+}
+
+void Player::onCollisionExit(Collider* lastTouched) {
+    isGrounded = false;
+    physicsBody.setGravityEnabled(true);
 }
 
 void Player::setGrounded(bool value) {

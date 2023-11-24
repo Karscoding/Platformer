@@ -8,7 +8,7 @@
 bool Game::running;
 
 
-float PhysicsBody::gravityStrength = 5.0f;
+float PhysicsBody::gravityStrength = 2.5f;
 
 PhysicsBody::PhysicsBody(Object* object)
     : object(object) {
@@ -19,12 +19,13 @@ PhysicsBody::PhysicsBody(Object* object)
 void PhysicsBody::run() {
     if (gravityEnabled) {
         gravity();
-        applyVelocity();
     }
+
+    applyVelocity();
 }
 
 void PhysicsBody::addForce(float amount) {
-    velocity += amount;
+    this->velocity -= amount;
 }
 
 void PhysicsBody::setGravityEnabled(bool enabled) {
@@ -32,7 +33,7 @@ void PhysicsBody::setGravityEnabled(bool enabled) {
 }
 
 void PhysicsBody::resetVelocity() {
-    velocity = 0.0f;
+    this->velocity = 0.0f;
 }
 
 void PhysicsBody::applyVelocity() {

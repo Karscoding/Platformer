@@ -7,7 +7,8 @@
 #include "../main.h"
 
 Object::Object()
-    : position(0, 0), dimensions(0, 0) {}
+    : position(0, 0), dimensions(0, 0) {
+}
 
 void Object::move(Vector2 amount) {
     this->position = position.transform(amount);
