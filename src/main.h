@@ -25,7 +25,7 @@ public:
     SDL_Event event;
     SDL_Window* window;
     static SDL_Renderer* renderer;
-    Renderer customRenderer = Renderer();
+    static Renderer customRenderer;
 
     static Player* player;
 

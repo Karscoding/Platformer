@@ -6,6 +6,7 @@
 #define DEBUG_MODE true
 
 SDL_Renderer* Game::renderer;
+Renderer Game::customRenderer = Renderer();
 
 Player* Game::player = new Player();
 Level* Game::currentLevel = new Level1();
@@ -22,7 +23,7 @@ int main(int argc, char* args []) {
         return 1;
     }
 
-    game.customRenderer.addObject(game.player);
+    Game::customRenderer.addObject(Game::player);
 
     Game::setRenderer(SDL_CreateRenderer(game.window, -1, SDL_RENDERER_ACCELERATED));
     if (Game::renderer == nullptr) {
@@ -39,7 +40,7 @@ int main(int argc, char* args []) {
         game.run();
     }
 
-    SDL_DestroyRenderer(game.renderer);
+    SDL_DestroyRenderer(Game::renderer);
     SDL_DestroyWindow(game.window);
     SDL_Quit();
     return 0;
