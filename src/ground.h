@@ -6,7 +6,6 @@
 #define PROJECT_NAME_GROUND_H
 
 #include "utility/object.h"
-#include "utility/collider.h"
 
 
 class Ground : public Object {

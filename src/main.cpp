@@ -10,6 +10,8 @@ SDL_Renderer* Game::renderer;
 Player* Game::player = new Player();
 Level* Game::currentLevel = new Level1();
 
+bool Game::running = false;
+
 int main(int argc, char* args []) {
     SDL_Init(SDL_INIT_VIDEO);
     Game game;

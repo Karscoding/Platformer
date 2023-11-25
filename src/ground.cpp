@@ -3,8 +3,6 @@
 //
 
 #include "ground.h"
-#include "player.h"
-#include "main.h"
 
 
 Ground::Ground(Vector2 position, Vector2 dimensions, Color color) {

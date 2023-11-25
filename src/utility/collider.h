@@ -7,26 +7,26 @@
 #ifndef PROJECT_NAME_COLLIDER_H
 #define PROJECT_NAME_COLLIDER_H
 
-#include "object.h"
 #include <string>
+#include "vector2.h"
 
 class Player;
+class Object;
 
 class Collider{
 public:
     std::string tag;
 
-    Vector2* position;
-    Vector2* dimensions;
+    Object* object;
 
-    Collider(Object* object);
-    void update(void(*onCollisionFunction)(Collider* other));
+    explicit Collider(Object* object);
+
+    void update(Player* player);
 
 private:
     Vector2* topLeftCorner;
     Vector2* bottomRightCorner;
 
-    Object* object;
     Collider* lastTouched;
 
     void updateCorners();

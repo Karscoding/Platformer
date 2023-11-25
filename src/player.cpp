@@ -18,7 +18,7 @@
 #define PLAYER_JUMP_FORCE 35.0f
 
 Player::Player()
-    : physicsBody(this), collider(this) {
+    : physicsBody(this) {
     setPosition(Vector2(PLAYER_SPAWN_X, PLAYER_SPAWN_Y));
     setDimensions(Vector2(PLAYER_WIDTH, PLAYER_HEIGHT));
     setColor(Color(PLAYER_RED, PLAYER_GREEN, PLAYER_BLUE));
@@ -45,14 +45,14 @@ void Player::update() {
 
     physicsBody.update();
 
-    collider.update();
+    collider.update(this);
 }
 
 void Player::onCollisionEnter(Collider *other) {
     if (other->tag == "Ground") {
         physicsBody.resetVelocity();
         physicsBody.setGravityEnabled(false);
-        setPosition(Vector2(position.x, other->position->y - dimensions.y));
+        setPosition(Vector2(position.x, other->object->position.y - dimensions.y));
         isGrounded = true;
     }
 }

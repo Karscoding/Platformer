@@ -22,6 +22,9 @@ public:
     Player();
 
     void update();
+
+    void onCollisionEnter(Collider* other);
+    void onCollisionExit(Collider* lastTouched);
 private:
     int speed;
 
@@ -30,9 +33,6 @@ private:
     bool isGrounded;
 
     PhysicsBody physicsBody;
-
-    void onCollisionEnter(Collider* other);
-    void onCollisionExit(Collider* lastTouched);
 
     void resetPlayer();
 };

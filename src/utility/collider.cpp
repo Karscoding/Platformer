@@ -10,19 +10,17 @@
 
 Collider::Collider(Object* object)
     : object(object) {
-    this->position = &object->position;
-    this->dimensions = &object->dimensions;
     this->tag = "Default";
 
     updateCorners();
 }
 
-void Collider::update(void(*onCollisionFunction)(Collider* other)) {
+void Collider::update(Player* player) {
     if (runCollisionCheck() != nullptr) {
         lastTouched = runCollisionCheck();
-        onCollisionFunction(lastTouched);
+        player->onCollisionEnter(lastTouched);
     } else {
-        onCollisionFunction(lastTouched);
+        player->onCollisionExit(lastTouched);
     }
 }
 
@@ -30,14 +28,14 @@ void Collider::update(void(*onCollisionFunction)(Collider* other)) {
 // Private:
 
 void Collider::updateCorners() {
-    this->topLeftCorner = new Vector2(this->position->x, this->position->y - 5);
-    this->bottomRightCorner = new Vector2(this->position->x + this->dimensions->x, this->position->y + this->dimensions->y + 5);
+    this->topLeftCorner = new Vector2(object->position.x, object->position.y - 5);
+    this->bottomRightCorner = new Vector2(object->position.x + object->dimensions.x, object->position.y + object->dimensions.y + 5);
 }
 
 Collider* Collider::runCollisionCheck() {
-    for (Object* object : Game::getCurrentLevel()->objectList) {
-        if (this->isColliding(&object->collider)) {
-            return &object->collider;
+    for (Object* obj : Game::getCurrentLevel()->objectList) {
+        if (this->isColliding(&obj->collider)) {
+            return &obj->collider;
         }
     }
     return nullptr;

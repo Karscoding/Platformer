@@ -15,8 +15,6 @@
 // An object
 class Object {
 public:
-    Object();
-
     SDL_Rect rect;
 
     Collider collider;
@@ -24,14 +22,16 @@ public:
     Vector2 position;
     Vector2 dimensions;
 
+    Color color = Color(255, 255, 255);
+
+    Object();
+
     void move(Vector2 amount);
 
     void setPosition(Vector2 position);
     void setDimensions(Vector2 dimensions);
     void setColor(Color color);
 private:
-    Color color = Color(255, 255, 255);
-
     void updatePosition();
     void updateDimensions();
 };
