@@ -11,3 +11,7 @@ Ground::Ground(Vector2 position, Vector2 dimensions, Color color) {
     setColor(color);
     this->collider.tag = "Ground";
 }
+
+void Ground::update() {
+
+}

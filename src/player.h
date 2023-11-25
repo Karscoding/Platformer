@@ -21,7 +21,7 @@ class Player : public Object {
 public:
     Player();
 
-    void update();
+    void update() override;
 
     void onCollisionEnter(Collider* other);
     void onCollisionExit(Collider* lastTouched);

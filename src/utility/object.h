@@ -26,6 +26,8 @@ public:
 
     Object();
 
+    virtual void update() = 0;
+
     void move(Vector2 amount);
 
     void setPosition(Vector2 position);
