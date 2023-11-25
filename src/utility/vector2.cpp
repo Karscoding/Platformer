@@ -8,9 +8,8 @@
 Vector2::Vector2(int x, int y)
     : x(x), y(y) {}
 
-void Vector2::transform(Vector2 amount) {
-    this->x += amount.x;
-    this->y += amount.x;
+Vector2 Vector2::transform(Vector2 amount) {
+    return Vector2(this->x + amount.x, this->y + amount.y);
 }
 
 bool const Vector2::operator>=(Vector2* other) const {

@@ -12,7 +12,7 @@ struct Vector2 {
     int x, y;
 
     Vector2(int x, int y);
-    void transform(Vector2 amount);
+    Vector2 transform(Vector2 amount);
 
     bool const operator>= (Vector2* other) const;
     bool const operator<= (Vector2* other) const;

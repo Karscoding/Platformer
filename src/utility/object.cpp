@@ -11,7 +11,7 @@ Object::Object()
     : position(0, 0), dimensions(0, 0), collider(this) {}
 
 void Object::move(Vector2 amount) {
-    this->position.transform(amount);
+    this->position = position.transform(amount);
     updatePosition();
 }
 
