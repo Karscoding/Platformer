@@ -29,7 +29,7 @@ public:
 
     static Player* player;
 
-    std::list<Level*> levelList;
+    static std::list<Object*> objectList;
     static Level* currentLevel;
 
     Game();
@@ -39,6 +39,7 @@ public:
     static void setRenderer(SDL_Renderer* renderer);
     void run();
     static void quit();
+    void updateAll();
 };
 
 #endif //MAIN_H

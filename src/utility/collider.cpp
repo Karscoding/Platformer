@@ -28,7 +28,7 @@ void Collider::update(Player* player) {
 // Private:
 
 void Collider::updateCorners() {
-    this->topLeftCorner = new Vector2(object->position.x, object->position.y - 5);
+    this->topLeftCorner = new Vector2(object->position.x, object->position.y);
     this->bottomRightCorner = new Vector2(object->position.x + object->dimensions.x, object->position.y + object->dimensions.y + 5);
 }
 

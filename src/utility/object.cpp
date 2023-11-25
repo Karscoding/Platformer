@@ -3,12 +3,14 @@
 //
 
 #include "object.h"
-
+#include "../main.h"
 
 // Public:
 
 Object::Object()
-    : position(0, 0), dimensions(0, 0), collider(this) {}
+    : position(0, 0), dimensions(0, 0), collider(this) {
+    Game::objectList.push_front(this);
+}
 
 void Object::move(Vector2 amount) {
     this->position = position.transform(amount);

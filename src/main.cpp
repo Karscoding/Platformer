@@ -5,8 +5,11 @@
 
 #define DEBUG_MODE true
 
+
 SDL_Renderer* Game::renderer;
 Renderer Game::customRenderer = Renderer();
+
+std::list<Object*> Game::objectList;
 
 Player* Game::player = new Player();
 Level* Game::currentLevel = new Level1();
@@ -22,8 +25,6 @@ int main(int argc, char* args []) {
         SDL_Log("Failed to create window: %s", SDL_GetError());
         return 1;
     }
-
-    Game::customRenderer.addObject(Game::player);
 
     Game::setRenderer(SDL_CreateRenderer(game.window, -1, SDL_RENDERER_ACCELERATED));
     if (Game::renderer == nullptr) {
@@ -49,12 +50,17 @@ int main(int argc, char* args []) {
 Game::Game() {}
 
 void Game::run() {
-    // todo: organize into an updatemanager class or smthn.
     handleEvent(&event);
-    player->update();
+    updateAll();
     Game::lastFrame = SDL_GetTicks();
     customRenderer.render();
     SDL_RenderPresent(renderer);
+}
+
+void Game::updateAll() {
+    for (Object* obj : Game::objectList) {
+        obj->update();
+    }
 }
 
 void Game::quit() {
