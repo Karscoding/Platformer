@@ -4,6 +4,6 @@
 
 #include "level.h"
 
-void Level::addGroundObject(Ground *ground) {
-    this->groundObjects.push_front(ground);
+void Level::addObject(Object* object) {
+    this->objectList.push_front(object);
 }

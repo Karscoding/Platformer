@@ -92,7 +92,7 @@ To be able to deploy this to /usr/local in the Raspbian system you need to fix u
 Apps don't work or poor video/audio performance
 -----------------------------------------------
 
-If you get sound problems, buffer underruns, etc, run "sudo rpi-update" to
+If you get sound problems, buffer underruns, etc, update "sudo rpi-update" to
 update the RPi's firmware. Note that doing so will fix these problems, but it
 will also render the CMA - Dynamic Memory Split functionality useless.
 
@@ -136,9 +136,9 @@ your app has read access to one of the following:
 * /dev/vc/0
 * /dev/console
 
-This is usually not a problem if you run from the physical terminal (as opposed
+This is usually not a problem if you update from the physical terminal (as opposed
 to running from a pseudo terminal, such as via SSH). If running from a PTS, a
-quick workaround is to run your app as root or add yourself to the tty group,
+quick workaround is to update your app as root or add yourself to the tty group,
 then re-login to the system.
 
     sudo usermod -aG tty `whoami`

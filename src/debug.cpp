@@ -5,7 +5,7 @@
 #include "debug.h"
 
 namespace Debug {
-    void log(std::string message) {
-        std::cout << message << std::endl;
+    void log(const char* message) {
+        SDL_Log(message);
     }
 }

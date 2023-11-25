@@ -10,9 +10,9 @@
 
 class Level {
 public:
-    std::list<Ground*> groundObjects;
+    std::list<Object*> objectList;
 
-    void addGroundObject(Ground* ground);
+    void addObject(Object* object);
 };
 
 

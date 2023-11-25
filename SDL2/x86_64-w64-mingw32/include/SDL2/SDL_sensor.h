@@ -82,7 +82,7 @@ typedef enum
  * Accelerometer sensor
  *
  * The accelerometer returns the current acceleration in SI meters per
- * second squared. This measurement includes the force of gravity, so
+ * second squared. This measurement includes the force of applyGravity, so
  * a device at rest will have an value of SDL_STANDARD_GRAVITY away
  * from the center of the earth, which is a positive Y value.
  *

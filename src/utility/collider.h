@@ -1,5 +1,5 @@
 //
-// Created by Shadow on 11/21/2023.
+// Created by Kars on 11/21/2023.
 //
 
 #pragma once
@@ -7,28 +7,29 @@
 #ifndef PROJECT_NAME_COLLIDER_H
 #define PROJECT_NAME_COLLIDER_H
 
-#include "object.h"
 #include <string>
+#include "vector2.h"
 
 class Player;
+class Object;
 
-struct Collider{
+class Collider{
+public:
     std::string tag;
 
-    Vector2* position;
-    Vector2* dimensions;
+    Object* object;
 
+    explicit Collider(Object* object);
+
+    void update(Player* player);
+
+private:
     Vector2* topLeftCorner;
     Vector2* bottomRightCorner;
 
-    Object* object;
     Collider* lastTouched;
 
-    Collider(Object* object);
-
     void updateCorners();
-
-    void update(Player* player);
     Collider* runCollisionCheck();
     bool isColliding(Collider* other);
 };

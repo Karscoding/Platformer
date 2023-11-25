@@ -11,7 +11,7 @@ Credits to:
 
 ## Building
 
-To build for the Nintendo 3DS, make sure you have devkitARM and cmake installed and run:
+To build for the Nintendo 3DS, make sure you have devkitARM and cmake installed and update:
 
 ```bash
 cmake -S. -Bbuild -DCMAKE_TOOLCHAIN_FILE="$DEVKITPRO/cmake/3DS.cmake" -DCMAKE_BUILD_TYPE=Release

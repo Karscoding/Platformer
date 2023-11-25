@@ -1,14 +1,14 @@
 //
-// Created by Shadow on 11/21/2023.
+// Created by Kars on 11/21/2023.
 //
 
 #include "object.h"
 
-#include "../main.h"
+
+// Public:
 
 Object::Object()
-    : position(0, 0), dimensions(0, 0) {
-}
+    : position(0, 0), dimensions(0, 0), collider(this) {}
 
 void Object::move(Vector2 amount) {
     this->position = position.transform(amount);
@@ -17,7 +17,20 @@ void Object::move(Vector2 amount) {
 
 void Object::setPosition(Vector2 position) {
     this->position = position;
+    updatePosition();
 }
+
+void Object::setDimensions(Vector2 dimensions) {
+    this->dimensions = dimensions;
+    updateDimensions();
+}
+
+void Object::setColor(Color color) {
+    this->color = color;
+}
+
+
+// Private:
 
 void Object::updatePosition() {
     this->rect.x = this->position.x;
@@ -27,9 +40,4 @@ void Object::updatePosition() {
 void Object::updateDimensions() {
     this->rect.w = this->dimensions.x;
     this->rect.h = this->dimensions.y;
-}
-
-void Object::drawObject() {
-    SDL_SetRenderDrawColor(Game::getRenderer(), color.red, color.green, color.blue, color.alpha);
-    SDL_RenderFillRect(Game::getRenderer(), &this->rect);
 }

@@ -2,6 +2,7 @@
 // Created by Shadow on 11/20/2023.
 //
 
+
 #include "player.h"
 
 #define PLAYER_WIDTH 64
@@ -18,15 +19,13 @@
 #define PLAYER_JUMP_FORCE 35.0f
 
 Player::Player()
-    : physicsBody(this), collider(this) {
-    this->position = Vector2(PLAYER_SPAWN_X, PLAYER_SPAWN_Y);
-    this->dimensions = Vector2(PLAYER_WIDTH, PLAYER_HEIGHT);
-    this->color = Color(PLAYER_RED, PLAYER_GREEN, PLAYER_BLUE);
+    : physicsBody(this) {
+    setPosition(Vector2(PLAYER_SPAWN_X, PLAYER_SPAWN_Y));
+    setDimensions(Vector2(PLAYER_WIDTH, PLAYER_HEIGHT));
+    setColor(Color(PLAYER_RED, PLAYER_GREEN, PLAYER_BLUE));
+
     this->speed = PLAYER_SPEED;
     this->jumpForce = PLAYER_JUMP_FORCE;
-
-    updatePosition();
-    updateDimensions();
 }
 
 void Player::update() {
@@ -45,16 +44,16 @@ void Player::update() {
         isGrounded = false;
     }
 
-    physicsBody.run();
+    physicsBody.update();
 
     collider.update(this);
 }
 
-void Player::onCollision(Collider *other) {
+void Player::onCollisionEnter(Collider *other) {
     if (other->tag == "Ground") {
         physicsBody.resetVelocity();
         physicsBody.setGravityEnabled(false);
-        setPosition(Vector2(position.x, other->position->y - dimensions.y));
+        setPosition(Vector2(position.x, other->object->position.y - dimensions.y));
         isGrounded = true;
     }
 }
@@ -62,18 +61,6 @@ void Player::onCollision(Collider *other) {
 void Player::onCollisionExit(Collider* lastTouched) {
     isGrounded = false;
     physicsBody.setGravityEnabled(true);
-}
-
-void Player::setGrounded(bool value) {
-    isGrounded = value;
-}
-
-PhysicsBody* Player::getPhysicsBody() {
-    return &physicsBody;
-}
-
-Collider* Player::getCollider() {
-    return &collider;
 }
 
 void Player::resetPlayer() {

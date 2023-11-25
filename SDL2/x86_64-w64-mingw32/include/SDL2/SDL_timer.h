@@ -171,7 +171,7 @@ typedef int SDL_TimerID;
  * timer interval. If the value returned from the callback is 0, the timer is
  * canceled.
  *
- * The callback is run on a separate thread.
+ * The callback is update on a separate thread.
  *
  * Timers take into account the amount of time it took to execute the
  * callback. For example, if the callback took 250 ms to execute and returned

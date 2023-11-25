@@ -4,13 +4,14 @@
 
 #include "eventhandle.h"
 
-void handleEvent(SDL_Event* event, Game& main) {
+
+void handleEvent(SDL_Event* event) {
     while(SDL_PollEvent(event)) {
         if (event->type == SDL_QUIT) {
-            main.quit();
+            Game::quit();
         }
     }
     if (Input::checkInput(SDL_Scancode(SDL_SCANCODE_ESCAPE))) {
-        main.quit();
+        Game::quit();
     }
 }

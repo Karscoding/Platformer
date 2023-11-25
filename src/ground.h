@@ -6,13 +6,10 @@
 #define PROJECT_NAME_GROUND_H
 
 #include "utility/object.h"
-#include "utility/collider.h"
+
 
 class Ground : public Object {
 public:
-    Collider collider;
-
-    void update();
     Ground(Vector2 position, Vector2 dimensions, Color color);
 };
 

@@ -1249,12 +1249,12 @@ extern "C" {
  *  - Testing an app with a particular OpenGL ES implementation, e.g ANGLE,
  *    or emulator, e.g. those from ARM, Imagination or Qualcomm.
  *  - Resolving OpenGL ES function addresses at link time by linking with
- *    the OpenGL ES library instead of querying them at run time with
+ *    the OpenGL ES library instead of querying them at update time with
  *    SDL_GL_GetProcAddress().
  *
  *  Caution: for an application to work with the default behaviour across
  *  different OpenGL drivers it must query the OpenGL ES function
- *  addresses at run time using SDL_GL_GetProcAddress().
+ *  addresses at update time using SDL_GL_GetProcAddress().
  *
  *  This variable is ignored on most platforms because OpenGL ES is native
  *  or not supported.
@@ -1993,7 +1993,7 @@ extern "C" {
  *  \brief  A variable controlling whether the windows message loop is processed by SDL
  *
  *  This variable can be set to the following values:
- *    "0"       - The window message loop is not run
+ *    "0"       - The window message loop is not update
  *    "1"       - The window message loop is processed in SDL_PumpEvents()
  *
  *  By default SDL will process the windows message loop

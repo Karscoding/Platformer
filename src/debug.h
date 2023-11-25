@@ -8,10 +8,10 @@
 #define PROJECT_NAME_DEBUG_H
 
 #include <string>
-#include <iostream>
+#include "SDL.h"
 
 namespace Debug {
-    void log(std::string message);
+    void log(const char* message);
 }
 
 #endif //PROJECT_NAME_DEBUG_H

@@ -25,7 +25,7 @@ public:
     SDL_Event event;
     SDL_Window* window;
     static SDL_Renderer* renderer;
-    Renderer customRenderer = Renderer();
+    static Renderer customRenderer;
 
     static Player* player;
 
@@ -38,7 +38,7 @@ public:
     static Level* getCurrentLevel();
     static void setRenderer(SDL_Renderer* renderer);
     void run();
-    void quit();
+    static void quit();
 };
 
 #endif //MAIN_H

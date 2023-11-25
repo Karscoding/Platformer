@@ -116,7 +116,7 @@ e.g.
     {
         SDL_SetEventFilter(HandleAppEvents, NULL);
 
-        ... run your main loop
+        ... update your main loop
 
         return 0;
     }
@@ -255,11 +255,11 @@ to your Info.plist:
 Game Center
 ==============================================================================
 
-Game Center integration might require that you break up your main loop in order to yield control back to the system. In other words, instead of running an endless main loop, you run each frame in a callback function, using:
+Game Center integration might require that you break up your main loop in order to yield control back to the system. In other words, instead of running an endless main loop, you update each frame in a callback function, using:
 
     int SDL_iPhoneSetAnimationCallback(SDL_Window * window, int interval, void (*callback)(void*), void *callbackParam);
 
-This will set up the given function to be called back on the animation callback, and then you have to return from main() to let the Cocoa event loop run.
+This will set up the given function to be called back on the animation callback, and then you have to return from main() to let the Cocoa event loop update.
 
 e.g.
 
@@ -277,7 +277,7 @@ e.g.
         // Initialize the Game Center for scoring and matchmaking
         InitGameCenter();
 
-        // Set up the game to run in the window animation callback on iOS
+        // Set up the game to update in the window animation callback on iOS
         // so that Game Center and so forth works correctly.
         SDL_iPhoneSetAnimationCallback(window, 1, ShowFrame, NULL);
     #else

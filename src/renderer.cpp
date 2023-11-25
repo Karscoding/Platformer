@@ -26,9 +26,9 @@ void Renderer::render() {
         SDL_RenderFillRect(Game::getRenderer(), &obj->rect);
     }
 
-    for (Ground* ground : Game::getCurrentLevel()->groundObjects) {
-        SDL_SetRenderDrawColor(Game::getRenderer(), ground->color.red, ground->color.green, ground->color.blue, 255);
-        SDL_RenderFillRect(Game::getRenderer(), &ground->rect);
+    for (Object* obj : Game::getCurrentLevel()->objectList) {
+        SDL_SetRenderDrawColor(Game::getRenderer(), obj->color.red, obj->color.green, obj->color.blue, 255);
+        SDL_RenderFillRect(Game::getRenderer(), &obj->rect);
     }
 
 

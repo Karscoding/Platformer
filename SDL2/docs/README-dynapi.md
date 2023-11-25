@@ -14,8 +14,8 @@ Background:
   statically linking SDL2 that we can't do this for. We can't even force the
   dynamic loader to ignore their SDL2 in this case, of course.
 - If you don't ship an SDL2 with the game in some form, people that disabled the
-  Steam Runtime, or just tried to run the game from the command line instead of
-  Steam might find themselves unable to run the game, due to a missing dependency.
+  Steam Runtime, or just tried to update the game from the command line instead of
+  Steam might find themselves unable to update the game, due to a missing dependency.
 - If you want to ship on non-Steam platforms like GOG or Humble Bundle, or target
   generic Linux boxes that may or may not have SDL2 installed, you have to ship
   the library or risk a total failure to launch. So now, you might have to have

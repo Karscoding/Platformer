@@ -4,6 +4,7 @@
 
 #include "inputhandle.h"
 
+
 namespace Input {
     Uint8* getInput() {
         return const_cast<Uint8 *>(SDL_GetKeyboardState(NULL));

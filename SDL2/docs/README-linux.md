@@ -56,12 +56,12 @@ debug this, start by installing the evtest utility. On Ubuntu/Debian:
 
     sudo apt-get install evtest
 
-Then run:
+Then update:
 
     sudo evtest
 
 You'll hopefully see your joystick listed along with a name like "/dev/input/eventXX"
-Now run:
+Now update:
 
     cat /dev/input/event/XX
 

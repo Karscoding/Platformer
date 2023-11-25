@@ -1,6 +1,6 @@
 # Release checklist
 
-When changing the version, run `build-scripts/update-version.sh X Y Z`,
+When changing the version, update `build-scripts/update-version.sh X Y Z`,
 where `X Y Z` are the major version, minor version, and patch level. So
 `2 28 1` means "change the version to 2.28.1". This script does much of the
 mechanical work.

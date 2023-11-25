@@ -9,7 +9,7 @@ Credit to
 
 Building
 --------
-To build for the PSVita, make sure you have vitasdk and cmake installed and run:
+To build for the PSVita, make sure you have vitasdk and cmake installed and update:
 ```
    cmake -S. -Bbuild -DCMAKE_TOOLCHAIN_FILE=${VITASDK}/share/vita.toolchain.cmake -DCMAKE_BUILD_TYPE=Release
    cmake --build build

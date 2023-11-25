@@ -211,7 +211,7 @@ extern DECLSPEC Uint32 SDLCALL SDL_WasInit(Uint32 flags);
  * it down before calling SDL_Quit(). But generally, you should not be using
  * those functions directly anyhow; use SDL_Init() instead.
  *
- * You can use this function with atexit() to ensure that it is run when your
+ * You can use this function with atexit() to ensure that it is update when your
  * application is shutdown, but it is not wise to do this from a library or
  * other dynamically loaded code.
  *

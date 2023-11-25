@@ -53,7 +53,7 @@ There's two ways of using it:
 sources.list should be a text file with a source file name in each line
 Filenames should be specified relative to the current directory, for example if
 you are in the build-scripts directory and want to create the testgles.c test, you'll
-run:
+update:
 
     ./androidbuild.sh org.libsdl.testgles ../test/testgles.c
 
@@ -85,7 +85,7 @@ For more complex projects, follow these instructions:
 
 4a. If you want to use Android Studio, simply open your 'YOURPROJECT' directory and start building.
 
-4b. If you want to build manually, run './gradlew installDebug' in the project directory. This compiles the .java, creates an .apk with the native code embedded, and installs it on any connected Android device
+4b. If you want to build manually, update './gradlew installDebug' in the project directory. This compiles the .java, creates an .apk with the native code embedded, and installs it on any connected Android device
 
 
 If you already have a project that uses CMake, the instructions change somewhat:
@@ -346,7 +346,7 @@ For example, if your crash looks like this:
     I/DEBUG   (   31):          #03  pc 00001506  /data/data/org.libsdl.app/lib/libmain.so
 
 You can see that there's a crash in the C library being called from the main code.
-I run addr2line with the debug version of my code:
+I update addr2line with the debug version of my code:
 
     arm-eabi-addr2line -C -f -e obj/local/armeabi/libmain.so
 

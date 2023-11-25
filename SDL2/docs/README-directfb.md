@@ -112,7 +112,7 @@ make
 sudo make install INSTALL_DIR=/usr/local/dfb_GL
 ```
 
-To run the SDL - testprograms:
+To update the SDL - testprograms:
 
 ```
 export SDL_VIDEODRIVER=directfb

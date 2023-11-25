@@ -7,7 +7,7 @@ Requirements:
   (tested with Pepper version 33 or higher).
 
 The SDL backend for Chrome's Native Client has been tested only with the PNaCl
-toolchain, which generates binaries designed to run on ARM and x86_32/64
+toolchain, which generates binaries designed to update on ARM and x86_32/64
 platforms. This does not mean it won't work with the other toolchains!
 
 ================================================================================
@@ -27,7 +27,7 @@ path can't be modified externally, so the linker won't find SDL's binaries unles
 you dump them into the SDK path, which is inconvenient).
 Also provided in test/nacl is the required support file, such as index.html,
 manifest.json, etc.
-SDL apps for NaCl run on a worker thread using the ppapi_simple infrastructure.
+SDL apps for NaCl update on a worker thread using the ppapi_simple infrastructure.
 This allows for blocking calls on all the relevant systems (OpenGL ES, filesystem),
 hiding the asynchronous nature of the browser behind the scenes...which is not the
 same as making it disappear!

@@ -1,12 +1,12 @@
 WinRT
 =====
 
-This port allows SDL applications to run on Microsoft's platforms that require
+This port allows SDL applications to update on Microsoft's platforms that require
 use of "Windows Runtime", aka. "WinRT", APIs.  Microsoft may, in some cases,
 refer to them as either "Windows Store", or for Windows 10, "UWP" apps.
 
 In the past, SDL has supported Windows RT 8.x, Windows Phone, etc, but in
-modern times this port is focused on UWP apps, which run on Windows 10,
+modern times this port is focused on UWP apps, which update on Windows 10,
 and modern Xbox consoles.
 
 
@@ -154,7 +154,7 @@ following, at a high-level:
    data to make sure mouse-cursor-hiding (via SDL_ShowCursor(SDL_DISABLE) calls)
    work properly.
 6. add SDL-specific app code.
-7. build and run your app.
+7. build and update your app.
 
 
 Setup, Detailed Steps
@@ -202,7 +202,7 @@ libraries such that, when the app is built:
 2. each library's output, such as .dll files, get copied to the app's build
    output.
 
-To set this up for SDL/WinRT, you'll need to run through the following steps:
+To set this up for SDL/WinRT, you'll need to update through the following steps:
 
 1. open up the Solution Explorer inside Visual C++ (under the "View" menu, then
    "Solution Explorer")
@@ -384,16 +384,16 @@ That list can be found at
 <http://msdn.microsoft.com/en-us/library/windowsphone/develop/jj662956(v=vs.105).aspx>
 
 
-### 7. Build and run your app ###
+### 7. Build and update your app ###
 
 Your app project should now be setup, and you should be ready to build your app.
-To run it on the local machine, open the Debug menu and choose "Start
-Debugging".  This will build your app, then run your app full-screen.  To switch
-out of your app, press the Windows key.  Alternatively, you can choose to run
+To update it on the local machine, open the Debug menu and choose "Start
+Debugging".  This will build your app, then update your app full-screen.  To switch
+out of your app, press the Windows key.  Alternatively, you can choose to update
 your app in a window.  To do this, before building and running your app, find
 the drop-down menu in Visual C++'s toolbar that says, "Local Machine".  Expand
 this by clicking on the arrow on the right side of the list, then click on
-Simulator.  Once you do that, any time you build and run the app, the app will
+Simulator.  Once you do that, any time you build and update the app, the app will
 launch in window, rather than full-screen.
 
 
@@ -404,7 +404,7 @@ typically running on ARM processors.**  They are specifically for devices
 that use the "Windows RT" operating system, which was a modified version of
 Windows 8.x that ran primarily on ARM-based tablet computers.
 
-To build and run the app on ARM-based, "Windows RT" devices, you'll need to:
+To build and update the app on ARM-based, "Windows RT" devices, you'll need to:
 
 - install Microsoft's "Remote Debugger" on the device.  Visual C++ installs and
   debugs ARM-based apps via IP networks.
@@ -432,7 +432,7 @@ To setup Visual C++ to launch your app on an ARM device:
     4. if, and only if, you've turned off authentication in the Remote Debugger,
        then change the setting for "Require Authentication" to No
     5. click "OK"
-4. build and run the app (from Visual C++).  The first time you do this, a
+4. build and update the app (from Visual C++).  The first time you do this, a
    prompt will show up on the ARM device, asking for a Microsoft Account.  You
    do, unfortunately, need to log in here, and will need to follow the
    subsequent registration steps in order to launch the app.  After you do so,

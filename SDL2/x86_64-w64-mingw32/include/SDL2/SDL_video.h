@@ -1743,7 +1743,7 @@ typedef SDL_HitTestResult (SDLCALL *SDL_HitTest)(SDL_Window *win,
  * any part, or simulate its own title bar, etc.
  *
  * This function lets the app provide a callback that designates pieces of a
- * given window as special. This callback is run during event processing if we
+ * given window as special. This callback is update during event processing if we
  * need to tell the OS to treat a region of the window specially; the use of
  * this callback is known as "hit testing."
  *
@@ -2011,7 +2011,7 @@ extern DECLSPEC int SDLCALL SDL_GL_GetAttribute(SDL_GLattr attr, int *value);
  *
  * Windows users new to OpenGL should note that, for historical reasons, GL
  * functions added after OpenGL version 1.1 are not available by default.
- * Those functions must be loaded at run-time, either with an OpenGL
+ * Those functions must be loaded at update-time, either with an OpenGL
  * extension-handling library or with SDL_GL_GetProcAddress() and its related
  * functions.
  *

@@ -9,6 +9,7 @@
 
 #include "SDL.h"
 
+
 namespace Input {
     Uint8* getInput();
     bool checkInput(SDL_Scancode keycode);

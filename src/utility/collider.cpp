@@ -1,42 +1,47 @@
 //
-// Created by Shadow on 11/21/2023.
+// Created by Kars on 11/21/2023.
 //
 
 #include "collider.h"
 #include "../main.h"
 
+
+// Public:
+
 Collider::Collider(Object* object)
     : object(object) {
-    this->position = &object->position;
-    this->dimensions = &object->dimensions;
     this->tag = "Default";
 
     updateCorners();
 }
 
-void Collider::updateCorners() {
-    this->topLeftCorner = new Vector2(this->position->x, this->position->y - 5);
-    this->bottomRightCorner = new Vector2(this->position->x + this->dimensions->x, this->position->y + this->dimensions->y + 5);
-}
-
 void Collider::update(Player* player) {
     if (runCollisionCheck() != nullptr) {
         lastTouched = runCollisionCheck();
-        player->onCollision(lastTouched);
+        player->onCollisionEnter(lastTouched);
     } else {
         player->onCollisionExit(lastTouched);
     }
 }
 
+
+// Private:
+
+void Collider::updateCorners() {
+    this->topLeftCorner = new Vector2(object->position.x, object->position.y - 5);
+    this->bottomRightCorner = new Vector2(object->position.x + object->dimensions.x, object->position.y + object->dimensions.y + 5);
+}
+
 Collider* Collider::runCollisionCheck() {
-    for (Ground* ground : Game::getCurrentLevel()->groundObjects) {
-        if (this->isColliding(&ground->collider)) {
-            return &ground->collider;
+    for (Object* obj : Game::getCurrentLevel()->objectList) {
+        if (this->isColliding(&obj->collider)) {
+            return &obj->collider;
         }
     }
     return nullptr;
 }
 
+// todo : should probably change this to isCollingTop and then add a isCollingSide to know the difference.
 bool Collider::isColliding(Collider* other) {
     updateCorners();
     other->updateCorners();
