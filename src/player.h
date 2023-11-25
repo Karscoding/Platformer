@@ -19,6 +19,10 @@
 
 class Player : public Object {
 public:
+    Player();
+
+    void update();
+private:
     int speed;
 
     float jumpForce;
@@ -26,23 +30,11 @@ public:
     bool isGrounded;
 
     PhysicsBody physicsBody;
-    Collider collider;
 
-    Player();
-
-    void update();
-
-    void setGrounded(bool value);
-
-    PhysicsBody* getPhysicsBody();
-    Collider* getCollider();
-
-    void onCollision(Collider* other);
+    void onCollisionEnter(Collider* other);
     void onCollisionExit(Collider* lastTouched);
 
     void resetPlayer();
-
-    void debugging();
 };
 
 

@@ -54,7 +54,7 @@ If you had already forked the repository, you may update it from the web page us
 
 ### Following the style guide
 
-Code formatting is done using a custom `.clang-format` file, you can learn more about how to run it [here](https://clang.llvm.org/docs/ClangFormat.html).
+Code formatting is done using a custom `.clang-format` file, you can learn more about how to update it [here](https://clang.llvm.org/docs/ClangFormat.html).
 
 Some legacy code may not be formatted, as such avoid formatting the whole file at once and only format around your changes.
 
@@ -76,7 +76,7 @@ before calling Bar.
 
 Tests allow you to verify if your changes did not break any behaviour, here are the steps to follow:
 
--   Before pushing, run the `testautomation` suite on your machine, there should be no more failing tests after your change than before.
+-   Before pushing, update the `testautomation` suite on your machine, there should be no more failing tests after your change than before.
 -   After pushing to your fork, Continuous Integration (GitHub Actions) will ensure compilation and tests still pass on other systems.
 
 ### Opening a pull request

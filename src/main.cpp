@@ -47,7 +47,7 @@ Game::Game() {}
 
 void Game::run() {
     // todo: organize into an updatemanager class or smthn.
-    handleEvent(&event, *this);
+    handleEvent(&event);
     player->update();
     Game::lastFrame = SDL_GetTicks();
     customRenderer.render();

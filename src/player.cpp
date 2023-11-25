@@ -19,14 +19,12 @@
 
 Player::Player()
     : physicsBody(this), collider(this) {
-    this->position = Vector2(PLAYER_SPAWN_X, PLAYER_SPAWN_Y);
-    this->dimensions = Vector2(PLAYER_WIDTH, PLAYER_HEIGHT);
-    this->color = Color(PLAYER_RED, PLAYER_GREEN, PLAYER_BLUE);
+    setPosition(Vector2(PLAYER_SPAWN_X, PLAYER_SPAWN_Y));
+    setDimensions(Vector2(PLAYER_WIDTH, PLAYER_HEIGHT));
+    setColor(Color(PLAYER_RED, PLAYER_GREEN, PLAYER_BLUE));
+
     this->speed = PLAYER_SPEED;
     this->jumpForce = PLAYER_JUMP_FORCE;
-
-    updatePosition();
-    updateDimensions();
 }
 
 void Player::update() {
@@ -45,12 +43,12 @@ void Player::update() {
         isGrounded = false;
     }
 
-    physicsBody.run();
+    physicsBody.update();
 
-    collider.update(this);
+    collider.update();
 }
 
-void Player::onCollision(Collider *other) {
+void Player::onCollisionEnter(Collider *other) {
     if (other->tag == "Ground") {
         physicsBody.resetVelocity();
         physicsBody.setGravityEnabled(false);
@@ -62,18 +60,6 @@ void Player::onCollision(Collider *other) {
 void Player::onCollisionExit(Collider* lastTouched) {
     isGrounded = false;
     physicsBody.setGravityEnabled(true);
-}
-
-void Player::setGrounded(bool value) {
-    isGrounded = value;
-}
-
-PhysicsBody* Player::getPhysicsBody() {
-    return &physicsBody;
-}
-
-Collider* Player::getCollider() {
-    return &collider;
 }
 
 void Player::resetPlayer() {

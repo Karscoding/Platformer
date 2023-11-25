@@ -38,7 +38,7 @@ public:
     static Level* getCurrentLevel();
     static void setRenderer(SDL_Renderer* renderer);
     void run();
-    void quit();
+    static void quit();
 };
 
 #endif //MAIN_H

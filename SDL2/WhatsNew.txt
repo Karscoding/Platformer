@@ -449,7 +449,7 @@ General:
 * Added SDL_HasColorKey() to return whether a surface has a colorkey active
 * Added SDL_HasAVX512F() to return whether the CPU has AVX-512F features
 * Added SDL_IsTablet() to return whether the application is running on a tablet
-* Added SDL_THREAD_PRIORITY_TIME_CRITICAL for threads that must run at the highest priority
+* Added SDL_THREAD_PRIORITY_TIME_CRITICAL for threads that must update at the highest priority
 
 Mac OS X:
 * Fixed black screen at start on Mac OS X Mojave

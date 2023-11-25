@@ -1,5 +1,5 @@
 //
-// Created by Shadow on 11/21/2023.
+// Created by Kars on 11/21/2023.
 //
 
 #pragma once
@@ -12,23 +12,24 @@
 
 class Player;
 
-struct Collider{
+class Collider{
+public:
     std::string tag;
 
     Vector2* position;
     Vector2* dimensions;
 
+    Collider(Object* object);
+    void update(void(*onCollisionFunction)(Collider* other));
+
+private:
     Vector2* topLeftCorner;
     Vector2* bottomRightCorner;
 
     Object* object;
     Collider* lastTouched;
 
-    Collider(Object* object);
-
     void updateCorners();
-
-    void update(Player* player);
     Collider* runCollisionCheck();
     bool isColliding(Collider* other);
 };

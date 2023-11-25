@@ -1,12 +1,11 @@
 //
-// Created by karsh on 22-11-2023.
+// Created by Kars on 22-11-2023.
 //
 
 #include "physicsBody.h"
-#include "../main.h"
 
-bool Game::running;
 
+// Public:
 
 float PhysicsBody::gravityStrength = 2.5f;
 
@@ -16,16 +15,12 @@ PhysicsBody::PhysicsBody(Object* object)
     gravityEnabled = true;
 }
 
-void PhysicsBody::run() {
+void PhysicsBody::update() {
     if (gravityEnabled) {
-        gravity();
+        applyGravity();
     }
 
     applyVelocity();
-}
-
-void PhysicsBody::addForce(float amount) {
-    this->velocity -= amount;
 }
 
 void PhysicsBody::setGravityEnabled(bool enabled) {
@@ -36,10 +31,17 @@ void PhysicsBody::resetVelocity() {
     this->velocity = 0.0f;
 }
 
+void PhysicsBody::addForce(float amount) {
+    this->velocity -= amount;
+}
+
+
+// Private:
+
 void PhysicsBody::applyVelocity() {
     object->move(Vector2(0, velocity));
 }
 
-void PhysicsBody::gravity() {
+void PhysicsBody::applyGravity() {
     this->velocity += PhysicsBody::gravityStrength;
 }

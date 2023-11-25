@@ -1,5 +1,5 @@
 //
-// Created by Shadow on 11/21/2023.
+// Created by Kars on 11/21/2023.
 //
 
 #pragma once
@@ -10,22 +10,30 @@
 #include "vector2.h"
 #include "SDL.h"
 #include "color.h"
+#include "collider.h"
 
 // An object
-struct Object {
+class Object {
+public:
+    Object();
+
     SDL_Rect rect;
-    Color color = Color(255, 255, 255);
+
+    Collider collider;
 
     Vector2 position;
     Vector2 dimensions;
 
-    Object();
-
     void move(Vector2 amount);
+
     void setPosition(Vector2 position);
+    void setDimensions(Vector2 dimensions);
+    void setColor(Color color);
+private:
+    Color color = Color(255, 255, 255);
+
     void updatePosition();
     void updateDimensions();
-    void drawObject();
 };
 
 

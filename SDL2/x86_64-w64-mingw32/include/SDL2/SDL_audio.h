@@ -210,7 +210,7 @@ typedef void (SDLCALL * SDL_AudioFilter) (struct SDL_AudioCVT * cvt,
  *
  *  Note that various parts of the conversion pipeline can take advantage
  *  of SIMD operations (like SSE2, for example). SDL_AudioCVT doesn't require
- *  you to pass it aligned data, but can possibly run much faster if you
+ *  you to pass it aligned data, but can possibly update much faster if you
  *  set both its (buf) field to a pointer that is aligned to 16 bytes, and its
  *  (len) field to something that's a multiple of 16, if possible.
  */
@@ -1244,7 +1244,7 @@ extern DECLSPEC int SDLCALL SDL_QueueAudio(SDL_AudioDeviceID dev, const void *da
  * There are no limits on the amount of data you can queue, short of
  * exhaustion of address space. Data from the device will keep queuing as
  * necessary without further intervention from you. This means you will
- * eventually run out of memory if you aren't routinely dequeueing data.
+ * eventually update out of memory if you aren't routinely dequeueing data.
  *
  * Capture devices will not queue data when paused; if you are expecting to
  * not need captured audio for some length of time, use SDL_PauseAudioDevice()
@@ -1384,7 +1384,7 @@ extern DECLSPEC void SDLCALL SDL_LockAudio(void);
  * SDL_LockAudioDevice()/SDL_UnlockAudioDevice() pair, you can be guaranteed
  * that the callback function for that device is not running, even if the
  * device is not paused. While a device is locked, any other unpaused,
- * unlocked devices may still run their callbacks.
+ * unlocked devices may still update their callbacks.
  *
  * Calling this function from inside your audio callback is unnecessary. SDL
  * obtains this lock before calling your function, and releases it when the
@@ -1396,9 +1396,9 @@ extern DECLSPEC void SDLCALL SDL_LockAudio(void);
  * Do not do heavy work while holding the lock for a device.
  *
  * It is safe to lock the audio device multiple times, as long as you unlock
- * it an equivalent number of times. The callback will not run until the
+ * it an equivalent number of times. The callback will not update until the
  * device has been unlocked completely in this way. If your application fails
- * to unlock the device appropriately, your callback will never run, you might
+ * to unlock the device appropriately, your callback will never update, you might
  * hear repeating bursts of audio, and SDL_CloseAudioDevice() will probably
  * deadlock.
  *

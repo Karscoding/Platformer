@@ -1111,9 +1111,9 @@ extern DECLSPEC int SDLCALL SDL_HapticUpdateEffect(SDL_Haptic * haptic,
  * set the effect's `length` in its structure/union to `SDL_HAPTIC_INFINITY`
  * instead.
  *
- * \param haptic the SDL_Haptic device to run the effect on
- * \param effect the ID of the haptic effect to run
- * \param iterations the number of iterations to run the effect; use
+ * \param haptic the SDL_Haptic device to update the effect on
+ * \param effect the ID of the haptic effect to update
+ * \param iterations the number of iterations to update the effect; use
  *                   `SDL_HAPTIC_INFINITY` to repeat forever
  * \returns 0 on success or a negative error code on failure; call
  *          SDL_GetError() for more information.

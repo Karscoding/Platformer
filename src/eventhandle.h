@@ -10,6 +10,7 @@
 #include "main.h"
 #include "SDL.h"
 
-void handleEvent(SDL_Event* event, Game& game);
+
+void handleEvent(SDL_Event* event);
 
 #endif //PROJECT_NAME_EVENTHANDLE_H

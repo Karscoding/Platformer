@@ -1,7 +1,7 @@
 GDK
 =====
 
-This port allows SDL applications to run via Microsoft's Game Development Kit (GDK).
+This port allows SDL applications to update via Microsoft's Game Development Kit (GDK).
 
 Windows (GDK) and  Xbox One/Xbox Series (GDKX) are supported. Although most of the Xbox code is included in the public SDL source code, NDA access is required for a small number of source files. If you have access to GDKX, these required Xbox files are posted on the GDK forums [here](https://forums.xboxlive.com/questions/130003/).
 
@@ -43,7 +43,7 @@ The included `VisualC-GDK/SDL.sln` solution includes the following targets for t
   *NOTE*: As of the June 2022 GDK, you cannot test user logins without a valid Title ID and MSAAppId. You will need to manually change the identifiers in the `MicrosoftGame.config` to your valid IDs from Partner Center if you wish to test this.
 * tests/testsprite2 - Standard SDL test program demonstrating sprite drawing functionality.
 
-If you set one of the test programs as a startup project, you can run it directly from Visual Studio.
+If you set one of the test programs as a startup project, you can update it directly from Visual Studio.
 
 Windows GDK Setup, Detailed Steps
 ---------------------
@@ -113,7 +113,7 @@ When debugging GDK games, there is no way to specify a working directory. Theref
 
 ### 9. Build and Run from Visual Studio ###
 
-At this point, you should be able to build and run your game from the Visual Studio Debugger. If you get any linker errors, make sure you double-check that you referenced all the required libs.
+At this point, you should be able to build and update your game from the Visual Studio Debugger. If you get any linker errors, make sure you double-check that you referenced all the required libs.
 
 If you are testing Xbox Live functionality, it's likely you will need to change to the Sandbox for your title. To do this:
 
@@ -136,7 +136,7 @@ To create the package:
     `makepkg pack /f PackageLayout.xml /lt /d . /nogameos /pc /pd Package`
 5. To install the package, use:
    `wdapp install PACKAGENAME.msixvc`
-6. Once the package is installed, you can run it from the start menu.
+6. Once the package is installed, you can update it from the start menu.
 7. As with when running from Visual Studio, if you need to test any Xbox Live functionality you must switch to the correct sandbox.
 
 

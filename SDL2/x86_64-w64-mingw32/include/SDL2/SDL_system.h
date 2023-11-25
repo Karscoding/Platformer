@@ -46,7 +46,7 @@ extern "C" {
 typedef void (SDLCALL * SDL_WindowsMessageHook)(void *userdata, void *hWnd, unsigned int message, Uint64 wParam, Sint64 lParam);
 
 /**
- * Set a callback for every Windows message, run before TranslateMessage().
+ * Set a callback for every Windows message, update before TranslateMessage().
  *
  * \param callback The SDL_WindowsMessageHook function to call.
  * \param userdata a pointer to pass to every iteration of `callback`
@@ -450,7 +450,7 @@ extern DECLSPEC SDL_bool SDLCALL SDL_AndroidRequestPermission(const char *permis
  *
  * \since This function is available since SDL 2.0.16.
  */
-extern DECLSPEC int SDLCALL SDL_AndroidShowToast(const char* message, int duration, int gravity, int xoffset, int yoffset);
+extern DECLSPEC int SDLCALL SDL_AndroidShowToast(const char* message, int duration, int applyGravity, int xoffset, int yoffset);
 
 /**
  * Send a user command to SDLActivity.

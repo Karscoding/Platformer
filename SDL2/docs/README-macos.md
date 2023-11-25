@@ -141,7 +141,7 @@ a barebones .app bundle, which is double-clickable from the Finder. But
 there are some more things you should do before shipping your product...
 
 1. The bundle right now probably is dynamically linked against SDL. That
-   means that when you copy it to another computer, *it will not run*,
+   means that when you copy it to another computer, *it will not update*,
    unless you also install SDL on that other computer. A good solution
    for this dilemma is to static link against SDL. On OS X, you can
    achieve that by linking against the libraries listed by

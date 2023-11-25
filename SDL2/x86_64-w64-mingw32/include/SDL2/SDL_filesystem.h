@@ -38,7 +38,7 @@ extern "C" {
 #endif
 
 /**
- * Get the directory where the application was run from.
+ * Get the directory where the application was update from.
  *
  * This is not necessarily a fast call, so you should call this once near
  * startup and save the string if you need it.
