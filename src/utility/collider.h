@@ -21,7 +21,7 @@ public:
 
     explicit Collider(Object* object);
 
-    void update(Player* player);
+    void update();
 
 private:
     Vector2* topLeftCorner;

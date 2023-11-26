@@ -11,7 +11,6 @@
 class Ground : public Object {
 public:
     Ground(Vector2 position, Vector2 dimensions, Color color);
-    void update() override;
 };
 
 

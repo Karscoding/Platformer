@@ -46,7 +46,7 @@ void Player::update() {
 
     physicsBody.update();
 
-    collider.update(this);
+    collider.update();
 }
 
 void Player::onCollisionEnter(Collider *other) {

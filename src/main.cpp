@@ -5,20 +5,17 @@
 
 #define DEBUG_MODE true
 
+Game game;
 
 SDL_Renderer* Game::renderer;
 Renderer Game::customRenderer = Renderer();
 
-std::list<Object*> Game::objectList;
-
-Player* Game::player = new Player();
-Level* Game::currentLevel = new Level1();
+Level Game::currentLevel = Level1();
 
 bool Game::running = false;
 
 int main(int argc, char* args []) {
     SDL_Init(SDL_INIT_VIDEO);
-    Game game;
 
     game.window = SDL_CreateWindow("Platformer", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, WIDTH, HEIGHT, SDL_WINDOW_SHOWN);
     if (game.window == nullptr) {
@@ -58,8 +55,10 @@ void Game::run() {
 }
 
 void Game::updateAll() {
-    for (Object* obj : Game::objectList) {
-        obj->update();
+    if (!Game::getCurrentLevel()->getObjects()->empty()) {
+        for (Object* obj : *Game::getCurrentLevel()->getObjects()) {
+            obj->update();
+        }
     }
 }
 
@@ -68,7 +67,7 @@ void Game::quit() {
 }
 
 Level* Game::getCurrentLevel() {
-    return currentLevel;
+    return &currentLevel;
 }
 
 SDL_Renderer* Game::getRenderer() {

@@ -27,10 +27,7 @@ public:
     static SDL_Renderer* renderer;
     static Renderer customRenderer;
 
-    static Player* player;
-
-    static std::list<Object*> objectList;
-    static Level* currentLevel;
+    static Level currentLevel;
 
     Game();
 

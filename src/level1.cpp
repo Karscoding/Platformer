@@ -3,10 +3,12 @@
 //
 
 #include "level1.h"
+#include "player.h"
 
 Level1::Level1() {
     Color white = Color(255, 255, 255);
 
-    Level::addObject(new Ground(Vector2(300, 400), Vector2(600, 200), white));
-    Level::addObject(new Ground(Vector2(1050, 550), Vector2(150, 100), white));
+    Player player = Player();
+    Ground block1 = Ground(Vector2(300, 400), Vector2(600, 200), white);
+    Ground block2 = Ground(Vector2(1050, 550), Vector2(150, 100), white);
 }

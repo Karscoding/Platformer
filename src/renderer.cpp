@@ -21,9 +21,11 @@ void Renderer::render() {
 
 
 
-    for (Object* obj : Game::objectList) {
-        SDL_SetRenderDrawColor(Game::getRenderer(), obj->color.red, obj->color.green,obj->color.blue, 255);
-        SDL_RenderFillRect(Game::getRenderer(), &obj->rect);
+    if (!Game::getCurrentLevel()->getObjects()->empty()) {
+        for (Object* obj : *Game::getCurrentLevel()->getObjects()) {
+            SDL_SetRenderDrawColor(Game::getRenderer(), obj->color.red, obj->color.green,obj->color.blue, 255);
+            SDL_RenderFillRect(Game::getRenderer(), &obj->rect);
+        }
     }
 
 
@@ -32,8 +34,4 @@ void Renderer::render() {
     if (timerFPS < (1000/60)) {
         SDL_Delay((1000/60)-timerFPS);
     }
-}
-
-void Renderer::addObject(Object* object) {
-    objectList.push_front(object);
 }

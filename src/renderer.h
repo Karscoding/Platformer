@@ -14,12 +14,9 @@
 class Game;
 
 struct Renderer {
-    std::list<Object*> objectList;
-
     Renderer();
 
     void render();
-    void addObject(Object* object);
 };
 
 #endif //PROJECT_NAME_RENDERER_H

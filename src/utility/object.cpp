@@ -9,7 +9,8 @@
 
 Object::Object()
     : position(0, 0), dimensions(0, 0), collider(this) {
-    Game::objectList.push_front(this);
+    Game::getCurrentLevel()->getObjects();
+    Game::getCurrentLevel()->addObject(this);
 }
 
 void Object::move(Vector2 amount) {
