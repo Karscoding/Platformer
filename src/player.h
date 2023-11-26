@@ -12,6 +12,7 @@
 #include "utility/collider.h"
 #include "inputhandle.h"
 #include "SDL.h"
+#include "main.h"
 
 #ifndef PROJECT_NAME_PLAYER_H
 #define PROJECT_NAME_PLAYER_H
@@ -23,8 +24,8 @@ public:
 
     void update() override;
 
-    void onCollisionEnter(Collider* other);
-    void onCollisionExit(Collider* lastTouched);
+    void onCollisionEnter(Collider* other) override;
+    void onCollisionExit(Collider* lastTouched) override;
 private:
     int speed;
 

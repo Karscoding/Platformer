@@ -5,10 +5,9 @@
 #include "level.h"
 
 void Level::addObject(Object* object) {
-    objectList->push_back(object);
-    objectList->push_front(object);
+    this->objectList.push_front(object);
 }
 
 std::list<Object *>* Level::getObjects() {
-    return objectList;
+    return &objectList;
 }

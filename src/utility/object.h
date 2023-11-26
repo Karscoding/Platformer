@@ -28,7 +28,7 @@ public:
 
     virtual void update() {};
     virtual void onCollisionEnter(Collider* other) {};
-    virtual void onCollisionExit(Collider* other) {};
+    virtual void onCollisionExit(Collider* lastTouched) {};
 
     void move(Vector2 amount);
 

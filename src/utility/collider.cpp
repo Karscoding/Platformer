@@ -33,11 +33,10 @@ void Collider::updateCorners() {
 }
 
 Collider* Collider::runCollisionCheck() {
-    if (!Game::getCurrentLevel()->getObjects()->empty()) {
-        for (Object* obj : *Game::getCurrentLevel()->getObjects()) {
-            if (this->isColliding(&obj->collider)) {
-                return &obj->collider;
-            }
+    // TODO: FIX, never returns nullptr for some reason...
+    for (Object* obj : *Game::currentLevel.getObjects()) {
+        if (this->isColliding(&obj->collider)) {
+            return &obj->collider;
         }
     }
     return nullptr;

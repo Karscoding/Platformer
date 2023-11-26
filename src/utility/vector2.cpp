@@ -3,7 +3,6 @@
 //
 
 #include "vector2.h"
-#include "SDL.h"
 
 Vector2::Vector2(int x, int y)
     : x(x), y(y) {}

@@ -8,10 +8,7 @@
 // Public:
 
 Object::Object()
-    : position(0, 0), dimensions(0, 0), collider(this) {
-    Game::getCurrentLevel()->getObjects();
-    Game::getCurrentLevel()->addObject(this);
-}
+    : position(0, 0), dimensions(0, 0), collider(this) {}
 
 void Object::move(Vector2 amount) {
     this->position = position.transform(amount);

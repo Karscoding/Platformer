@@ -7,6 +7,8 @@
 
 Game game;
 
+int somethingTest;
+
 SDL_Renderer* Game::renderer;
 Renderer Game::customRenderer = Renderer();
 
@@ -55,10 +57,8 @@ void Game::run() {
 }
 
 void Game::updateAll() {
-    if (!Game::getCurrentLevel()->getObjects()->empty()) {
-        for (Object* obj : *Game::getCurrentLevel()->getObjects()) {
-            obj->update();
-        }
+    for (Object* obj : *Game::getCurrentLevel()->getObjects()) {
+        obj->update();
     }
 }
 
