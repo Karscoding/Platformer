@@ -57,6 +57,7 @@ void Game::run() {
 }
 
 void Game::updateAll() {
+    Game::getCurrentLevel()->getPlayer()->update();
     for (Object* obj : *Game::getCurrentLevel()->getObjects()) {
         obj->update();
     }

@@ -20,6 +20,7 @@
 
 Player::Player()
     : physicsBody(this) {
+    this->collider.tag = "Player";
     setPosition(Vector2(PLAYER_SPAWN_X, PLAYER_SPAWN_Y));
     setDimensions(Vector2(PLAYER_WIDTH, PLAYER_HEIGHT));
     setColor(Color(PLAYER_RED, PLAYER_GREEN, PLAYER_BLUE));

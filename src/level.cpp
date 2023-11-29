@@ -11,3 +11,7 @@ void Level::addObject(Object* object) {
 std::list<Object *>* Level::getObjects() {
     return &objectList;
 }
+
+Player* Level::getPlayer() {
+    return player;
+}

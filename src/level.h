@@ -10,10 +10,13 @@
 
 class Level {
 public:
+    Player* player;
     std::list<Object*> objectList;
 
     void addObject(Object* object);
+
     std::list<Object*>* getObjects();
+    Player* getPlayer();
 };
 
 
