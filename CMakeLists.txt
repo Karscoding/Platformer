@@ -18,7 +18,9 @@ add_executable(${PROJECT_NAME}
         src/utility/physicsBody.cpp
         src/ground.cpp
         src/level.cpp
-        src/level1.cpp)
+        src/level1.cpp
+        src/utility/line.cpp
+        src/utility/BoxCollider.cpp)
 
 # --- SDL2 SETUP ---
 set(CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake/modules)
