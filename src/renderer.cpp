@@ -39,7 +39,7 @@ void Renderer::render() {
 
 
     int timerFPS = SDL_GetTicks() - Game::lastFrame;
-    if (timerFPS < (1000/60)) {
-        SDL_Delay((1000/60)-timerFPS);
+    if (timerFPS < (1000/180)) {
+        SDL_Delay((1000/180)-timerFPS);
     }
 }

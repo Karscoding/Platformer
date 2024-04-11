@@ -7,7 +7,7 @@
 
 // Public:
 
-float PhysicsBody::gravityStrength = 2.5f;
+float PhysicsBody::gravityStrength = 1.0f;
 
 PhysicsBody::PhysicsBody(Object* object)
     : object(object) {

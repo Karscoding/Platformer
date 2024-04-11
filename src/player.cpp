@@ -15,8 +15,8 @@
 #define PLAYER_GREEN 255
 #define PLAYER_BLUE 255
 
-#define PLAYER_SPEED 15
-#define PLAYER_JUMP_FORCE 35.0f
+#define PLAYER_SPEED 7
+#define PLAYER_JUMP_FORCE 20.0f
 
 Player::Player()
     : physicsBody(this) {

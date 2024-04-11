@@ -20,7 +20,7 @@ add_executable(${PROJECT_NAME}
         src/level.cpp
         src/level1.cpp
         src/utility/line.cpp
-        src/utility/BoxCollider.cpp)
+        src/utility/boxCollider.cpp)
 
 # --- SDL2 SETUP ---
 set(CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake/modules)

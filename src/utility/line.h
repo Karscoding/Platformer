@@ -11,15 +11,14 @@
 
 class Line {
 private:
-    std::string tag;
 
     Vector2 begin;
     Vector2 end;
 public:
+    std::string tag;
+
     Line(Vector2 begin, Vector2 end);
     Line(Vector2 begin, Vector2 end, std::string tag);
-
-    std::string getTag();
 
     bool isLineInCollider(Collider other);
 };
