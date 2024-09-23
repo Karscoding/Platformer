@@ -8,7 +8,7 @@
 // Public:
 
 Object::Object()
-    : position(0, 0), dimensions(0, 0), collider(this) {}
+    : position(0, 0), dimensions(0, 0), collider(&this->rect) {}
 
 void Object::move(Vector2 amount) {
     this->position = position.transform(amount);
@@ -29,6 +29,16 @@ void Object::setColor(Color color) {
     this->color = color;
 }
 
+void Object::collisionCheck() {
+    for (Object* obj : *Game::currentLevel.getObjects()) {
+        if (this->collider.isColliding(&obj->collider)) {
+            lastTouched = &obj->collider;
+            this->onCollisionEnter(&obj->collider);
+        } else {
+            this->onCollisionExit(lastTouched);
+        }
+    }
+}
 
 // Private:
 

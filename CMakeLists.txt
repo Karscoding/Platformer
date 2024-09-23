@@ -7,18 +7,18 @@ set(CMAKE_CXX_STANDARD 14)
 add_executable(${PROJECT_NAME}
         src/utility/vector2.cpp
         src/utility/color.cpp
-        src/utility/object.cpp
+        src/objects/object.cpp
         src/utility/collider.cpp
         src/eventhandle.cpp
         src/inputhandle.cpp
         src/debug.cpp
-        src/player.cpp
+        src/objects/player.cpp
         src/renderer.cpp
         src/main.cpp
         src/utility/physicsBody.cpp
-        src/ground.cpp
-        src/level.cpp
-        src/level1.cpp
+        src/objects/ground.cpp
+        src/levels/level.cpp
+        src/levels/level1.cpp
         src/utility/line.cpp
         src/utility/boxCollider.cpp)
 

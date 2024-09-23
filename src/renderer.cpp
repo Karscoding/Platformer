@@ -5,6 +5,8 @@
 #include "renderer.h"
 #include "main.h"
 
+#define GAME_FPS 90
+
 int Game::lastFrame;
 
 Renderer::Renderer() {}
@@ -39,7 +41,7 @@ void Renderer::render() {
 
 
     int timerFPS = SDL_GetTicks() - Game::lastFrame;
-    if (timerFPS < (1000/180)) {
-        SDL_Delay((1000/180)-timerFPS);
+    if (timerFPS < (1000/GAME_FPS)) {
+        SDL_Delay((1000/GAME_FPS)-timerFPS);
     }
 }

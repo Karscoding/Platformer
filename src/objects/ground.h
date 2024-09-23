@@ -5,7 +5,7 @@
 #ifndef PROJECT_NAME_GROUND_H
 #define PROJECT_NAME_GROUND_H
 
-#include "utility/object.h"
+#include "object.h"
 
 
 class Ground : public Object {

@@ -8,8 +8,16 @@
 #include "collider.h"
 
 
-class BoxCollider : public Collider {
-
+class BoxCollider {
+private:
+    Vector2* coords;
+    Collider* topZone;
+    Collider* leftZone;
+    Collider* rightZone;
+    Collider* bottomZone;
+    Collider* middleZone;
+public:
+    BoxCollider(Object* object);
 };
 
 

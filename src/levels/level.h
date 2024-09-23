@@ -5,7 +5,7 @@
 #ifndef PROJECT_NAME_LEVEL_H
 #define PROJECT_NAME_LEVEL_H
 
-#include "ground.h"
+#include "../objects/ground.h"
 #include <list>
 
 class Level {

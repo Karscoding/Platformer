@@ -3,3 +3,11 @@
 //
 
 #include "boxCollider.h"
+//
+//BoxCollider::BoxCollider(Vector2* coords)
+//    : coords(coords) {
+//    topZone = new Collider()
+//}
+BoxCollider::BoxCollider(Object *object) {
+
+}

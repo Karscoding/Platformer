@@ -7,15 +7,15 @@
 #ifndef MAIN_H
 #define MAIN_H
 
-#include "player.h"
+#include "objects/player.h"
 #include "renderer.h"
 #include "SDL.h"
 #include "eventhandle.h"
 #include "debug.h"
-#include "player.h"
-#include "ground.h"
-#include "level.h"
-#include "level1.h"
+#include "objects/player.h"
+#include "objects/ground.h"
+#include "levels/level.h"
+#include "levels/level1.h"
 
 class Game {
 public:

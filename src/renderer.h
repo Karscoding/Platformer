@@ -8,8 +8,7 @@
 #define PROJECT_NAME_RENDERER_H
 
 #include "SDL.h"
-#include "utility/object.h"
-#include <list>
+#include "objects/object.h"
 
 class Game;
 

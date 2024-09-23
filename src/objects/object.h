@@ -7,10 +7,10 @@
 #ifndef PROJECT_NAME_OBJECT_H
 #define PROJECT_NAME_OBJECT_H
 
-#include "vector2.h"
+#include "../utility/vector2.h"
 #include "SDL.h"
-#include "color.h"
-#include "collider.h"
+#include "../utility/color.h"
+#include "../utility/collider.h"
 
 // An object
 class Object {
@@ -18,6 +18,7 @@ public:
     SDL_Rect rect;
 
     Collider collider;
+    Collider* lastTouched;
 
     Vector2 position;
     Vector2 dimensions;
@@ -35,6 +36,8 @@ public:
     void setPosition(Vector2 position);
     void setDimensions(Vector2 dimensions);
     void setColor(Color color);
+
+    void collisionCheck();
 private:
     void updatePosition();
     void updateDimensions();

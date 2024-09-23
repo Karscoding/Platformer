@@ -4,15 +4,15 @@
 
 #pragma once
 
-#include "utility/vector2.h"
-#include "utility/color.h"
-#include "utility/object.h"
-#include "utility/color.h"
-#include "utility/physicsBody.h"
-#include "utility/collider.h"
-#include "inputhandle.h"
+#include "../utility/vector2.h"
+#include "../utility/color.h"
+#include "object.h"
+#include "../utility/color.h"
+#include "../utility/physicsBody.h"
+#include "../utility/collider.h"
+#include "../inputhandle.h"
 #include "SDL.h"
-#include "main.h"
+#include "../main.h"
 
 #ifndef PROJECT_NAME_PLAYER_H
 #define PROJECT_NAME_PLAYER_H

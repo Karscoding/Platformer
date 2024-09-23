@@ -6,7 +6,7 @@
 #define PROJECT_NAME_PHYSICSBODY_H
 
 
-#include "object.h"
+#include "../objects/object.h"
 
 
 // Class that adds applyGravity physics to something

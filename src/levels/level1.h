@@ -6,7 +6,7 @@
 #define PROJECT_NAME_LEVEL1_H
 
 #include "level.h"
-#include "ground.h"
+#include "../objects/ground.h"
 
 class Level1 : public Level{
 public:

@@ -9,6 +9,7 @@
 
 #include <string>
 #include "vector2.h"
+#include "SDL_rect.h"
 
 class Player;
 class Object;
@@ -17,11 +18,11 @@ class Collider{
 public:
     std::string tag;
 
-    Object* object;
+    SDL_Rect* rect;
 
-    explicit Collider(Object* object);
+    explicit Collider(SDL_Rect* rect);
 
-    void update();
+    bool isColliding(Collider* other);
 
 private:
     Vector2* topLeftCorner;
@@ -30,8 +31,6 @@ private:
     Collider* lastTouched;
 
     void updateCorners();
-    Collider* runCollisionCheck();
-    bool isColliding(Collider* other);
 };
 
 #endif //PROJECT_NAME_COLLIDER_H

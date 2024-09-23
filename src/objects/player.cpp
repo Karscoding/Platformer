@@ -47,14 +47,14 @@ void Player::update() {
 
     physicsBody.update();
 
-    collider.update();
+    this->collisionCheck();
 }
 
-void Player::onCollisionEnter(Collider *other) {
+void Player::onCollisionEnter(Collider* other) {
     if (other->tag == "Ground") {
         physicsBody.resetVelocity();
         physicsBody.setGravityEnabled(false);
-        setPosition(Vector2(position.x, other->object->position.y - dimensions.y));
+        setPosition(Vector2(position.x, other->rect->y - dimensions.y));
         isGrounded = true;
     }
 }
